@@ -1,4 +1,4 @@
-<div class="row-fluid perfil">
+<div class="row-fluid perfil" id="perfil">
 	<h3>QUAL O SEU PERFIL?</h3>
 	<p class="pontos"><span>..............................</span></p>
 	<p>Estamos aqui para entender as suas necessidades e para ajudar você a alcançar os seus objetivos. Nosso foco é um só: você.</p>

@@ -708,6 +708,7 @@ footer .coluna2 p {
 	-webkit-box-shadow: 0 0 8px #707070;
 	box-shadow: 0 0 8px #707070;
 	padding: 7%;
+	margin-bottom: 5%;
 }
 #contato .caixa h1 {
 	color: #707070;
@@ -1001,7 +1002,7 @@ footer .coluna2 p {
 	background: #fcf8e3;
 	border: 1px solid #faebcc;
 	color: #8a6d3b;
-	width: 50%;
+	width: 100%;
 	padding: 1%;
 }
 

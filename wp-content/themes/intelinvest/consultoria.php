@@ -1,4 +1,4 @@
-<div class="bg_cnsultoria"></div>
+<div class="bg_cnsultoria" id="sobre"></div>
 <div class="row-fluid consultoria">
 	<?php
 		$consultoria = get_posts('post_type=consultoria');

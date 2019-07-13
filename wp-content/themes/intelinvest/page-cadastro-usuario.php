@@ -35,20 +35,21 @@
 			);
 			global $wpdb;
 
-			echo $wpdb->insert( $table_name, $cadastro_usuario, $format );
-			echo 'id = ' . $wpdb->insert_id;
-			// if($redirect){
-				echo "cadastro realizado";
-			// }
+			$result = $wpdb->insert( $table_name, $cadastro_usuario, $format );
+			if($redirect){
+				$sucesso = "<div class='sucesso alert alert-info'>
+				<button type='button' class='close' data-dismiss='alert'>×</button>
+				<h4>Sucesso!</h4>
+				<p>Seu e-mail foi enviado com sucesso! </p>
+				</div>";
 			
 		} else {
-			echo "Cadastro não realizado, contacte o administrador!";
+			$sucesso = "<div class='sucesso alert alert-danger'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Ooops!</h4>
+					<p>E-mail NÃO enviado, contate o administrador! </p>
+					</div>";
 		}
-
-		// if($redirect){
-		// 	echo "Cadastro realizado com sucesso!";
-		// }
-
 	}
 ?>
 
@@ -60,23 +61,23 @@
 		<form action="" method="POST" accept-charset="utf-8">
 			<fieldset>
 				<legend>Nome</legend>
-				<p><input type="text" name="nome" placeholder="Informe seu nome completo"></p>
+				<p><input type="text" name="nome" placeholder="Informe seu nome completo" required></p>
 			</fieldset>
 			<fieldset>
 				<legend>CPF</legend>
-				<p><input type="text" name="CPF" placeholder="Informe seu CPF"></p>
+				<p><input type="text" name="CPF" placeholder="Informe seu CPF" required></p>
 			</fieldset>
 			<fieldset>
 				<legend class="maior">Data de Nascimento</legend>
-				<p><input type="date" name="dt_nasc"></p>
+				<p><input type="date" name="dt_nasc" required></p>
 			</fieldset>
 			<fieldset>
 				<legend class="medio">Endereço</legend>
-				<p><input type="text" name="endereco" placeholder="Informe seu endereço"></p>
+				<p><input type="text" name="endereco" placeholder="Informe seu endereço" required></p>
 			</fieldset>
 			<fieldset>
 				<legend class="medio">Telefone</legend>
-				<p><input type="tel" name="telefone" placeholder="Informe seu Telefone"></p>
+				<p><input type="tel" name="telefone" placeholder="Informe seu Telefone" required></p>
 			</fieldset>
 			<fieldset>
 				<legend>Perfil</legend>
@@ -94,11 +95,11 @@
 			</fieldset>
 			<fieldset>
 				<legend>E-mail</legend>
-				<p><input type="email" name="email" placeholder="Informe seu e-mail"></p>
+				<p><input type="email" name="email" placeholder="Informe seu e-mail" required></p>
 			</fieldset>
 			<fieldset>
 				<legend>Senha</legend>
-				<p><input type="password" name="senha" placeholder="Informe sua senha"></p>
+				<p><input type="password" name="senha" placeholder="Informe sua senha" required></p>
 			</fieldset>
 
 			<p class="botoes">

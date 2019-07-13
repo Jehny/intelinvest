@@ -2,18 +2,19 @@
 	<nav>
 		<ul class="list-inline">
 			<li><a href="#home" class="scroll" data-offset="0">HOME</a></li>
-			<li><a href="#sobre" class="scroll" data-offset="0">ASSINATURAS</a></li>
+			<li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li>
 			<li><a href="#servicos" class="margin scroll" data-offset="0">SERVIÇOS</a></li>
 			<li><a href="#sobre" class="scroll" data-offset="0">SOBRE</a></li>
-			<li><a href="#fale_conosco" class="margin border scroll" data-offset="0">CONTATO</a></li>
+			<li><a href="contato" class="margin border">CONTATO</a></li>
 			<?php 
 			if(!$_SESSION['user_id_intelinvest']){ ?>
-				<li><a href="#loginModal" class="margin border scroll jqModal" data-offset="0" rel='modal:open'>LOGIN/CADASTRO</a></li>
-		<?php	} else {  ?>
+				<li><a href="#loginModal" class="margin border jqModal" rel='modal:open'>LOGIN/CADASTRO</a></li>
+		<?php	} else {  $urlPerfl = get_bloginfo('home')."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);?>
+			<li><a href="<?php echo $urlPerfl; ?>" class="margin border scroll" data-offset="0">PERFIL</a></li>
 			<li><a href="logout" class="margin border">LOGOUT</a></li>
 		<?php } 
 		?> 
-			<li><a href="" class="margin border queroContratar"  data-offset="0">Quero contratar!</a></li>
+			<li><a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" class="margin border queroContratar"  data-offset="0">Quero contratar!</a></li>
 		</ul>
 	</nav>
 </div>
@@ -23,14 +24,15 @@
   	</button>
   	<ul class="dropdown-menu" role="menu">
     	<li><a href="#home" class="scroll" data-offset="0">HOME</a></li>
-		<li><a href="#sobre" class="scroll" data-offset="0">ASSINATURAS</a></li>
+		<li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li>
 		<li><a href="#servicos" class="margin scroll" data-offset="0">SERVIÇOS</a></li>
 		<li><a href="#sobre" class="scroll" data-offset="0">SOBRE</a></li>
-		<li><a href="#fale_conosco" class="margin border scroll" data-offset="0">CONTATO</a></li>
+		<li><a href="contato" class="margin border">CONTATO</a></li>
 		 <?php 
 			if($_SESSION['user_id_intelinvest']){  ?>
 				<li><a href="#loginModal" class="margin border scroll" data-offset="0">LOGIN/CADASTRO</a></li>
-		<?php	} else { ?>
+		<?php	} else { $urlPerfl = get_bloginfo('home')."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);?>
+			<li><a href="<?php echo $urlPerfl; ?>" class="margin border scroll" data-offset="0">PERFIL</a></li>
 			<li><a href="logout" class="margin border scroll" data-offset="0">LOGOUT</a></li>
 		<?php } 
 		?> 

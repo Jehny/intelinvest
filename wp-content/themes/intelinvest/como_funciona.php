@@ -1,4 +1,4 @@
-<div class="row-fluid como_funciona">
+<div class="row-fluid como_funciona" id="servicos">
 	<h3> COMO FUNCIONA?</h3>
 	<p class="pontos"><span>..............................</span></p>
 	<p>Acreditamos que investir é para todos. Não importa o valor, a idade ou o conhecimento. Mas sabemos também que investir não é fácil. E por isso estamos aqui: para deixar tudo mais simples, tranquilo e seguro para você. </p>

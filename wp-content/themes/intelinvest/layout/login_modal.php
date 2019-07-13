@@ -40,12 +40,12 @@
 			</fieldset>
 			<fieldset>
 				<legend>Senha</legend>
-				<p><input type="text" name="senha" placeholder="Informe sua senha"></p>
+				<p><input type="password" name="senha" placeholder="Informe sua senha"></p>
 			</fieldset>
 			<p class="esqueci"><a href="" title="">Esqueceu a Senha?</a></p>
 			<p class="botoes">
 				<button type="submit" name="submit">Login</button>
-				<a href="" title="">Criar conta</a>
+				<a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" title="">Criar conta</a>
 			</p>
 		</form>
 	</div>

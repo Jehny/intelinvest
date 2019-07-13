@@ -9,5 +9,4 @@
 	include "newsletter.php";
 
 	include "layout/footer.php";
-	include "layout/login_modal.php"; 
 ?>

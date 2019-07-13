@@ -1,3 +1,6 @@
+<?php
+	include "login_modal.php"; 
+?>		
 			<footer>
 				<div class="row-fluid coluna1">
 					<div class="col-xs-12 col-sm-12 col-md-3">
@@ -21,5 +24,6 @@
 		</section>
 	</body>
 </html>
+
 
 

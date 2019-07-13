@@ -38,7 +38,7 @@
 			</fieldset>
 			<fieldset>
 				<legend>Senha</legend>
-				<p><input type="text" name="senha" placeholder="Informe sua senha"></p>
+				<p><input type="password" name="senha" placeholder="Informe sua senha"></p>
 			</fieldset>
 			<p class="esqueci"><a href="" title="">Esqueceu a Senha?</a></p>
 			<p class="botoes">
