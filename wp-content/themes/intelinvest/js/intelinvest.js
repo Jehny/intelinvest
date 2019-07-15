@@ -15,6 +15,10 @@ $(document).ready(function(){
             console.log('show');
         }
     });
+
+    if($('#enviado_slider').length){
+        $('#myModalSlider').modal('toggle');
+    }
     
     $('.alert .close').bind("click", function(e) {
         $(this).parent().hide();

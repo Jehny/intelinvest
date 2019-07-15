@@ -36,6 +36,6 @@
 
 	<div class="row">
 		<p class="ajudamos">Ajudamos você a investir melhor.</p>
-		<p><a href="" title="" class="btn_entre">Entre em contato</a>
+		<p><a href="<?php echo get_bloginfo('home');?>/contato" title="Entre em contato" class="btn_entre">Entre em contato</a>
 	</div>
 </div>
