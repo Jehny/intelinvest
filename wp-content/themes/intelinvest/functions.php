@@ -231,5 +231,84 @@
 		return true;
 	}
 
+	function criarNovaPasta($caminho, $pasta){
+	//;//, 0700 colocar quando for no linux
+		$new = $caminho."/".$pasta;
+		if(!file_exists($caminho."/".$pasta)){
+			mkdir ($caminho."/".$pasta);
+			return $new;
+		}else{
+			//echo "Não foi possível criar uma nova pasta!";
+			return $new;
+		}
+	}
+
+	function moverArquivo($arquivo, $caminho, $novoCaminho ){
+		rename($caminho."/".$arquivo, $novoCaminho."/".$arquivo);
+
+	}
+
+	function excluirArquivo($caminho, $idEstab, $arquivo){
+		if (file_exists($caminho ."/". $idEstab . "/" . $arquivo) and !empty($arquivo)){
+			// Removendo arquivo
+	        unlink($caminho . "/". $idEstab . "/" . $arquivo);
+	        return true;
+		}else{
+			return false;
+		}
+	}
+
+	function excluirArquivoSemSubPasta($caminho, $arquivo){
+		if (file_exists($caminho ."/". $arquivo) and !empty($arquivo)){
+			// Removendo arquivo
+			unlink($caminho . "/" . $arquivo);
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	
+	function limparFormatacaoContato($campo){
+		$campoLimpo = str_replace("(", "", $campo);
+		$campoLimpo = str_replace(")", "", $campoLimpo);
+		$campoLimpo = str_replace("-", "", $campoLimpo);
+
+	   return $campoLimpo;
+
+	}
+
+	function formatarCPF($campo){
+		$campoLimpo = str_replace(".", "", $campo);
+		$campoLimpo = str_replace("-", "", $campoLimpo);
+	   return $campoLimpo;
+	}
+
+	function validaCpfExiste($cpf = ""){
+
+		global $wpdb;
+		$sql  = "SELECT * FROM wp_users_system";
+		$sql .= "WHERE cpf = '{$cpf}'";
+
+		$result = $wpdb->get_row($sql);
+
+		return !empty($result) ? true : false;
+
+	}
+
+	//Função para validar se o email já está cadastrado na base de dados
+	function validaEmail($email = ""){
+		global $wpdb;
+
+		$sql  = "SELECT * FROM wp_users_system";
+		$sql .= "WHERE email = '{$email}'";
+		
+		$result = $wpdb->get_row($sql);
+
+		return !empty($result) ? true : false;
+
+	}
+
+
 
 ?>

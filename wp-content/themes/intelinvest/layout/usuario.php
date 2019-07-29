@@ -3,7 +3,7 @@
 class Usuario {
 
 	protected static $table_name = "wp_users_system";
-	protected static $db_fields = array('id', 'id_perfil', 'nome', 'cpf', 'dt_nasc', 'sexo', 'senha');
+	protected static $db_fields = array('id', 'nome', 'cpf', 'dt_nasc', 'endereco', 'telefone', 'email', 'senha', 'id_perfil');
 	public $id;
 	public $id_perfil;
 	public $nome;
@@ -11,6 +11,8 @@ class Usuario {
 	public $dt_nasc;
 	public $email;
 	public $senha;
+	public $tel;
+	public $end;
 	public $dt_cadastro;
 
 	/***

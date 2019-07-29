@@ -56,6 +56,27 @@ $(document).ready(function(){
 
         //END
 
+        /*================================
+        MÁSCARAS DOS FORMULÁRIOS
+        ================================
+        */
+        /* Máscaras ER */
+        // $("#telefone").mask("(00) 0000-00009");
+        // $(".phone").mask("(99) 99999-999?9").focusout(function (event) {  
+        //     var target, phone, element;  
+        //     target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+        //     phone = target.value.replace(/\D/g, '');
+        //     element = $(target);  
+        //     element.unmask();  
+        //     if(phone.length > 10) {  
+        //         element.mask("(99) 99999-999?9");  
+        //     } else {  
+        //         element.mask("(99) 99999-999?9");  
+        //     }  
+        // });
+         $(".phone").mask("(99) 99999-9999");
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+
         $('#button_dropdown').bind("click", function() {
          
             if($(window).width() < 400){

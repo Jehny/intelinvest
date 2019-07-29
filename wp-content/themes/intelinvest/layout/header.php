@@ -24,6 +24,7 @@
 		<script src="<?php bloginfo('template_url'); ?>/js/jquery.modal.min.js"></script>
 		<script src="<?php bloginfo('template_url'); ?>/js/jquery.swipebox.js"></script>
 		<script src="<?php bloginfo('template_url'); ?>/js/stellar.js"></script>
+		<script src="<?php bloginfo('template_url'); ?>/js/jquery.mask.min.js"></script>
 		<script src="<?php bloginfo('template_url'); ?>/js/intelinvest.js"></script>
 
 		<title>Intelinvest</title>
@@ -35,14 +36,12 @@
 	<body>
 		<?php global $message; echo output_message($message); ?>
 	<section class="container-fluid">
-		<div class="sobTopo">
+		<div class="sobTopo" id="home	">
 			<a href="" title="">Aprenda a investir, inscreva-se já!</a>
 		</div>
 		<div class="row-fluid" id="topo">
 			<header class="col-xs-4 col-sm-4 col-md-4">
 				<h1><a href="<?php echo get_bloginfo('home'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" class="img-responsive" alt="Intelinvest"></a></h1>
 			</header>
-			
-			<?php include "menu.php";	?>
-		</div>
+		
 		

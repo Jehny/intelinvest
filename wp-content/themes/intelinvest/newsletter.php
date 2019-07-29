@@ -18,20 +18,22 @@
 		$message .= "</body></html>";
 
 		if($email){
-			$table = 'newsletter';
+			$table = 'wp_newsletter';
 			$dados = array('email'=> $email);
 			$wpdb->insert( $table, $dados, $format );
-			
-			if(wp_mail( $to, $subject,  $message, $headers)){
+			if($wpdb->insert_id){
+				if(wp_mail( $to, $subject,  $message, $headers)){
 				
 				$teste_slider = "<input type='hidden' id='enviado_slider' />";
 				$message_slider = "Seu e-mail foi enviado com sucesso!";
-			} 
-			// else {
-			// 	$teste_slider = "<input type='hidden' id='enviado_slider' />";
-			// 	$message_slider = "Seu e-mail foi enviado com sucesso!";
-			// }
+				} 
+				else {
+					$teste_slider = "<input type='hidden' id='enviado_slider' />";
+					$message_slider = "E-mail cadastrado com sucesso!";
+				}
+			}
 		}
+			
 	}
 
 ?>

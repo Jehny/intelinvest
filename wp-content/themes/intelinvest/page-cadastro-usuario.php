@@ -1,10 +1,14 @@
 
 <?php
 	include "layout/header.php";
+	include "layout/menu2.php";
 
 	$perfis = pegaPefil();
 	global $wpdb;
+
+
 	if(isset($_POST['submit'])){
+
 		$nome = $_POST['nome'];
 		$cpf = $_POST['CPF'];
 		$dt_nasc = $_POST['dt_nasc'];
@@ -35,49 +39,75 @@
 			);
 			global $wpdb;
 
-			$result = $wpdb->insert( $table_name, $cadastro_usuario, $format );
-			if($redirect){
-				$sucesso = "<div class='sucesso alert alert-info'>
-				<button type='button' class='close' data-dismiss='alert'>×</button>
-				<h4>Sucesso!</h4>
-				<p>Seu e-mail foi enviado com sucesso! </p>
-				</div>";
-			
-		} else {
-			$sucesso = "<div class='sucesso alert alert-danger'>
+			if(validaEmail($email)){
+				$message = "<div class='sucesso alert alert-danger'>
 					<button type='button' class='close' data-dismiss='alert'>×</button>
 					<h4>Ooops!</h4>
-					<p>E-mail NÃO enviado, contate o administrador! </p>
+					<p>E-mail informado já cadastrado! </p>
 					</div>";
+			}else if(validaCpfExiste($cpf)){
+				$message = "<div class='sucesso alert alert-danger'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Ooops!</h4>
+					<p>CPF informado já cadastrado! </p>
+					</div>";
+			}else {
+				$result = $wpdb->insert( $table_name, $cadastro_usuario, $format );
+				if($result){
+					$message = "<div class='sucesso alert alert-info'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Sucesso!</h4>
+					<p>Seu cadastro foi realizado com sucesso! </p>
+					</div>";
+				
+				} else {
+					$message = "<div class='sucesso alert alert-danger'>
+						<button type='button' class='close' data-dismiss='alert'>×</button>
+						<h4>Ooops!</h4>
+						<p>Ocorreu um erro no seu cadastro! </p>
+						</div>";
+				}
+			}
 		}
+	} else  {
+		$nome = "";
+		$cpf = "";
+		$dt_nasc = "";
+		$end = "";
+		$tel = "";
+		$email = "";
+		$senha = "";
 	}
 ?>
 
 
 <div class="login_modal cadastro_modal row-fluid">
 	<div class="col-xs-12 col-sm-12 col-md-12">
-		<h1>Cadastre-se na	 Intelinvest!</h1>
+		<?php if(isset($message)){
+				echo $message;
+				} ?>
+		<h1>Cadastre-se na Intelinvest!</h1>
 		<h2>Por favor, cadastre-se para continuar</h2>
 		<form action="" method="POST" accept-charset="utf-8">
 			<fieldset>
 				<legend>Nome</legend>
-				<p><input type="text" name="nome" placeholder="Informe seu nome completo" required></p>
+				<p><input type="text" name="nome" placeholder="Informe seu nome completo" required value="<?php echo $nome; ?>"></p>
 			</fieldset>
 			<fieldset>
 				<legend>CPF</legend>
-				<p><input type="text" name="CPF" placeholder="Informe seu CPF" required></p>
+				<p><input type="text" name="CPF" placeholder="Informe seu CPF" class="cpf" value="<?php echo $cpf; ?>" required></p>
 			</fieldset>
 			<fieldset>
 				<legend class="maior">Data de Nascimento</legend>
-				<p><input type="date" name="dt_nasc" required></p>
+				<p><input type="date" name="dt_nasc" required value="<?php echo $dt_nasc; ?>"></p>
 			</fieldset>
 			<fieldset>
 				<legend class="medio">Endereço</legend>
-				<p><input type="text" name="endereco" placeholder="Informe seu endereço" required></p>
+				<p><input type="text" name="endereco" placeholder="Informe seu endereço" required value="<?php echo $end; ?>"></p>
 			</fieldset>
 			<fieldset>
 				<legend class="medio">Telefone</legend>
-				<p><input type="tel" name="telefone" placeholder="Informe seu Telefone" required></p>
+				<p><input type="tel" name="telefone" placeholder="Informe seu Telefone" class="phone" required value="<?php echo $tel; ?>"></p>
 			</fieldset>
 			<fieldset>
 				<legend>Perfil</legend>
@@ -95,13 +125,13 @@
 			</fieldset>
 			<fieldset>
 				<legend>E-mail</legend>
-				<p><input type="email" name="email" placeholder="Informe seu e-mail" required></p>
+				<p><input type="email" name="email" placeholder="Informe seu e-mail" required value="<?php echo $email; ?>"></p>
 			</fieldset>
 			<fieldset>
 				<legend>Senha</legend>
 				<p><input type="password" name="senha" placeholder="Informe sua senha" required></p>
 			</fieldset>
-
+			<p class="obrigatorio">* Todos os campos são obrigatórios.</p>
 			<p class="botoes">
 				<button type="submit" name="submit">Criar conta</button>
 			</p>

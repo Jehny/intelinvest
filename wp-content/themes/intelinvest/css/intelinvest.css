@@ -692,6 +692,10 @@ footer .coluna2 p {
 	text-align: center;
 }
 
+.cadastro_modal .obrigatorio {
+	font-size: 10px;
+}
+
 .blocker {
 	z-index: 1000 !important;
 }
@@ -814,6 +818,10 @@ footer .coluna2 p {
 
 .nav_arquivos .tab-content .tab-pane {}
 .nav_arquivos .nav-tabs > li { float: none;}
+#anexos {
+    list-style-image: url("../img/file.png");
+}
+
 #sobre {
 	padding-bottom: 3%;
 }

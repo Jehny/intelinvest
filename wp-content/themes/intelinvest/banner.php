@@ -35,7 +35,7 @@
 							       		<?php if(get_field('sub_titulo', $banner->ID)) { echo get_field('sub_titulo', $banner->ID); } ?>
 							       	</h4>
 							       	<p><?php if(get_field('texto_botao', $banner->ID)) { ?>
-							       		<a href="<?php echo get_field('link_botao', $banner->ID);?>" title=""><?php echo get_field('texto_botao', $banner->ID);?></a>
+							       		<a href="<?php echo get_bloginfo('home')."/".get_field('link_botao', $banner->ID);?>" title=""><?php echo get_field('texto_botao', $banner->ID);?></a>
 							       		 
 							       	<?php } ?></p>
 							    </div>

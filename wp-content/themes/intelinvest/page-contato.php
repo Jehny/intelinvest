@@ -1,5 +1,6 @@
 <?php
 	include "layout/header.php";
+	include "layout/menu2.php";
 
 	if(isset($_POST['submit'])){
 
