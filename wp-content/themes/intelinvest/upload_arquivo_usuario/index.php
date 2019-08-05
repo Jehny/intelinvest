@@ -30,6 +30,8 @@ if (isset($_POST['enviar']))
     $novoCaminho = $caminho . '/'.$idUser; 
     $usuario->criarNovaPasta($caminho, $idUser);
     $usuario->moverArquivo($arquivo, $caminho, $novoCaminho);
+    // fazer inserção no banco aqui
+    
     echo 'Arquivos Enviados: ';
     echo '<pre>';
         print_r($_POST['anexos']);

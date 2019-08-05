@@ -748,6 +748,7 @@ footer .coluna2 p {
 #perfil_user {
 	overflow: auto;
 	padding-bottom: 5%;
+	margin-top: 5%;
 }
 
 #perfil_user .info {
@@ -787,7 +788,6 @@ footer .coluna2 p {
 
 .nav_arquivos {
 	text-align: center;
-	width: 87%;
 	margin: auto;
 }
 
@@ -813,11 +813,23 @@ footer .coluna2 p {
 
 .nav_arquivos .tab-content {
 	margin-top: 4%;
-	margin-bottom: 5%;
 }
 
-.nav_arquivos .tab-content .tab-pane {}
+.nav_arquivos .tab-content .tab-pane {
+	background: #f3f3f3;
+	padding: 5%;
+}
 .nav_arquivos .nav-tabs > li { float: none;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	border: 1px solid #fff;
+	border-bottom-color: #b89237;
+}
+
+.nav-tabs>li>a:hover {
+	background: white;
+	border: 1px solid #fff;
+	border-bottom-color: #b89237;
+}
 #anexos {
     list-style-image: url("../img/file.png");
 }

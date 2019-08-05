@@ -9,13 +9,13 @@
 				<?php 
 				if(!$_SESSION['user_id_intelinvest']){ ?>
 					<li><a href="#loginModal" class="margin border jqModal logCad" rel='modal:open'>LOGIN/CADASTRO</a></li>
+					<li><a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" class="margin border queroContratar"  data-offset="0">Quero contratar!</a></li>
 			<?php	} else {  $urlPerfl = get_bloginfo('home')."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);?>
 				<li><a href="<?php echo $urlPerfl; ?>" class="margin border scroll" data-offset="0">PERFIL</a></li>
 				<li><a href="logout" class="margin border logCad">LOGOUT</a></li>
 				<li><a href="<?php echo get_bloginfo('home'); ?>/painel-controle" class="margin border">PAINEL</a></li>
 			<?php } 
 			?> 
-				<li><a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" class="margin border queroContratar"  data-offset="0">Quero contratar!</a></li>
 			</ul>
 		</nav>
 	</div>
