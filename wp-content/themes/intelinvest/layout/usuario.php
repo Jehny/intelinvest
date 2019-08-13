@@ -123,8 +123,9 @@ class Usuario {
 		} else {
 			$usuario = Usuario::find_by_id($id);
 		}
-		$perfil = Perfil::retornaNome($usuario->id_perfil);
-		return $perfil == "Administrador" ? true : false;
+		$perfil = Perfil::retornaPerfil($usuario->id_perfil);
+		return $perfil->nome;
+		// return $perfil->nome == "Administrador" ? true : false;
 	}
 	
 	//Função para validar se o email já está cadastrado na base de dados

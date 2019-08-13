@@ -4,21 +4,97 @@
 	include "layout/menu2.php";
 
 	$perfis = pegaPefil();
-	global $wpdb;
+	$idUser = 0;
 
+	if(isset($_GET['intelinvest'])){
+		doDecodifica($_GET['intelinvest']);
 
-	if(isset($_POST['submit'])){
+		if(isset($_GET['user_id_intelinvest'])){
+			$usuario = Usuario::find_by_id($_GET['user_id_intelinvest']);
+			$perfil = Perfil::retornaPerfil($usuario->id_perfil);
+			$idUser = $_GET['user_id_intelinvest'];
+		}
+	}
 
+	if(isset($_POST['atualizar'])){
 		$nome = $_POST['nome'];
-		$cpf = $_POST['CPF'];
+		$cpf = formatarCPF($_POST['CPF']);
 		$dt_nasc = $_POST['dt_nasc'];
 		$end = $_POST['endereco'];
-		$tel = $_POST['telefone'];
+		$tel = limparFormatacaoContato($_POST['telefone']);
+		$email = $_POST['email'];
+		
+		$perfil = $_POST['perfil_user'];
+		if($perfil == ""){
+			$perfil = "2";
+		}
+		$table_name = 'wp_users_system';
+		$dt_cad = pegaDataAtual();
+
+		if($nome != "" && $cpf != "" && $dt_nasc != "" && $end != "" && $tel != "" && $email != ""){
+			$senha = criptSenha($senha);
+			$dt_cad = pegaDataAtual();
+
+			$cadastro_usuario = array(
+				'nome'=> $nome,
+				'cpf'=> $cpf,
+				'dt_nasc'=> $dt_nasc,
+				'endereco'=> $end,
+				'telefone'=> $tel,
+				'email'=>$email,
+				'senha'=>$senha,
+				'id_perfil'=>$perfil,
+				'dt_cadastro'=>$dt_cad
+			);
+			global $wpdb;
+
+			if(validaEmailAtualizacao($email)){
+				$message = "<div class='sucesso alert alert-danger'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Ooops!</h4>
+					<p>E-mail informado já cadastrado! </p>
+					</div>";
+			}else if(validaCpfExisteAtualizacao($cpf)){
+				$message = "<div class='sucesso alert alert-danger'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Ooops!</h4>
+					<p>CPF informado já cadastrado! </p>
+					</div>";
+			}else {
+				$where = array('id'=>$idUser);
+				$result = $wpdb->update( $table_name, $cadastro_usuario, $where, $format );
+				if($result){
+					$message = "<div class='sucesso alert alert-info'>
+					<button type='button' class='close' data-dismiss='alert'>×</button>
+					<h4>Sucesso!</h4>
+					<p>Seu cadastro foi atualizado com sucesso! </p>
+					</div>";
+				} else {
+					$teste .= "sem result - ";
+					$message = "<div class='sucesso alert alert-danger'>
+						<button type='button' class='close' data-dismiss='alert'>×</button>
+						<h4>Ooops!</h4>
+						<p>Ocorreu um erro na atualização do seu cadastro! </p>
+						</div>";
+				}
+			}
+		}
+	}
+
+	if(isset($_POST['submit2'])){
+
+		$nome = $_POST['nome'];
+		$cpf = formatarCPF($_POST['CPF']);
+		$dt_nasc = $_POST['dt_nasc'];
+		$end = $_POST['endereco'];
+		$tel = limparFormatacaoContato($_POST['telefone']);
 		$email = $_POST['email'];
 		$senha = $_POST['senha'];
-
+		
 		$perfil = $_POST['perfil_user'];
-
+		if($perfil == ""){
+			$perfil = "2";
+		}
 		$table_name = 'wp_users_system';
 		$dt_cad = pegaDataAtual();
 
@@ -59,7 +135,13 @@
 					<h4>Sucesso!</h4>
 					<p>Seu cadastro foi realizado com sucesso! </p>
 					</div>";
-				
+					$nome = "";
+					$cpf = "";
+					$dt_nasc = "";
+					$end = "";
+					$tel = "";
+					$email = "";
+					$senha = "";
 				} else {
 					$message = "<div class='sucesso alert alert-danger'>
 						<button type='button' class='close' data-dismiss='alert'>×</button>
@@ -70,13 +152,12 @@
 			}
 		}
 	} else  {
-		$nome = "";
-		$cpf = "";
-		$dt_nasc = "";
-		$end = "";
-		$tel = "";
-		$email = "";
-		$senha = "";
+		$nome = $usuario->nome;
+		$cpf = $usuario->cpf;
+		$dt_nasc = $usuario->dt_nasc;
+		$end = $usuario->endereco;
+		$tel = $usuario->telefone;
+		$email = $usuario->email;
 	}
 ?>
 
@@ -109,6 +190,8 @@
 				<legend class="medio">Telefone</legend>
 				<p><input type="tel" name="telefone" placeholder="Informe seu Telefone" class="phone" required value="<?php echo $tel; ?>"></p>
 			</fieldset>
+
+			<?php if(Usuario::isAdministrador($idUser)){ ?>
 			<fieldset>
 				<legend>Perfil</legend>
 			<div class="form-group">
@@ -123,17 +206,26 @@
 			   </select>
 			 </div>
 			</fieldset>
+
+			<?php } ?>
 			<fieldset>
 				<legend>E-mail</legend>
 				<p><input type="email" name="email" placeholder="Informe seu e-mail" required value="<?php echo $email; ?>"></p>
 			</fieldset>
+			<?php if(!isset($_GET['user_id_intelinvest'])) { ?>
 			<fieldset>
 				<legend>Senha</legend>
 				<p><input type="password" name="senha" placeholder="Informe sua senha" required></p>
 			</fieldset>
+			<?php  } ?>
 			<p class="obrigatorio">* Todos os campos são obrigatórios.</p>
 			<p class="botoes">
+				
+				<?php if(isset($_GET['user_id_intelinvest'])) { ?>
+				<button type="submit" name="atualizar">Atualizar</button>
+				<?php } else { ?>
 				<button type="submit" name="submit">Criar conta</button>
+				<?php } ?>
 			</p>
 			
 		</form>

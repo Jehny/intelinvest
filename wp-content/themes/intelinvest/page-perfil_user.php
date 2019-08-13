@@ -35,7 +35,8 @@
 
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-12 col-md-12 botao_edit">
-			<a href="" title="">Editar Perfil</a>	
+			<?php $editar = get_bloginfo('home') .'/cadastro-usuario?intelinvest='.doCodifica("?user_id_intelinvest=" .$usuario->id); ?>
+			<a href="<?php  echo $editar; ?>" title="">Editar Perfil</a>	
 		</div>
 	</div>
 </div>

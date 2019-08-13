@@ -296,6 +296,22 @@
 
 	}
 
+	function validaCpfExisteAtualizacao($cpf = ""){
+
+		global $wpdb;
+		$sql  = "SELECT * FROM wp_users_system";
+		$sql .= "WHERE cpf = '{$cpf}'";
+
+		$result = $wpdb->get_row($sql);
+
+		if(!empty($result) && ($result->cpf == $cpf)){
+			return false;
+		} else if(!empty($result) && ($result->cpf != $cpf)) {
+			return true;
+		}
+
+	}
+
 	//Função para validar se o email já está cadastrado na base de dados
 	function validaEmail($email = ""){
 		global $wpdb;
@@ -306,6 +322,21 @@
 		$result = $wpdb->get_row($sql);
 
 		return !empty($result) ? true : false;
+
+	}
+
+	function validaEmailAtualizacao($id = 0, $email = ""){
+		global $wpdb;
+
+		$sql  = "SELECT * FROM wp_users_system";
+		$sql .= "WHERE id = '{$id}'";
+		
+		$result = $wpdb->get_row($sql);
+		if(!empty($result) && ($result->email == $email)){
+			return false;	
+		} else if (!empty($result) && ($result->email != $email)){
+			return true;
+		}
 
 	}
 
