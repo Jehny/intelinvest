@@ -641,6 +641,17 @@ footer .coluna2 p {
 	text-decoration: none;
 }
 
+.login_modalPage {
+	margin: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.login_modalPage img {
+	height: 137%;
+    width: 100%;
+}
+
 #clicaLogin {
 	color: #B89237;
 }
@@ -897,427 +908,84 @@ footer .coluna2 p {
 	margin: 0 11px;
 }
 
-#ciencia {
-	background: url(../imgs/juvenesse_parallax.jpg) no-repeat center center fixed;
+/* Painel de Controle */
 
-	padding-bottom: 5%;
-	padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 3%;
+.painel {
+	width: 88%;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    font-family: 'OpenSans-Light';
+    overflow: hidden;
 }
 
-#ciencia h1 {
-	margin-top: 0;
-	padding-bottom: 1%;
-}
+.painel h3 {}
 
-#ciencia p {
-	width: 50%;
-}
+.painel .opcoes{}
 
-#noticiasEdicas {
-	padding-bottom: 5%;
-	padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 1%;
-	overflow: hidden;
-}
+.painel ul {margin-top: 4%;}
 
-#noticiasEdicas h1 {
-	padding-top: 2%;
-}
+.painel ul li {text-align: center;}
 
-#noticiasEdicas p {
-	height: 280px;
-}
+.painel ul li p {}
 
-#noticiasEdicas .line {
-	margin-bottom: 5%;
-}
+.painel ul li p img {width: 22%;}
+.painel ul li p a {font-weight: bold; color:#b89237;}
+.painel ul li p i{}
 
-#noticiasEdicas .titles {
-	height: 90px;
-}
-
-#fale_conosco {
-	padding-bottom: 5%;
-	padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 1%;
-	overflow: hidden;
-	background: #F7F7F7;
-}
-
-#fale_conosco div {
-	padding-left: 0; 
-}
-
-#fale_conosco h1 {
-	margin-top: 0;
-	float: left;
-}
-
-#fale_conosco h1 > span {
+/* upload de arquivos e listagem */
+.uploadFile {
 
 }
 
-#fale_conosco button {
-	background: none;
-	margin-right: 6%;
+.selectUser {
+	margin-top: 1%;
+	margin-bottom: 2%;
 }
 
-#fale_conosco .barra {
-	margin-top: -20px;
-	position: absolute;
-	margin-left: 28px;
+.fileAnexos {
+	border: 1px solid #b89237;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
-#fale_conosco h5 {
-	margin-top: 5px;
-	margin-left: 26px;
+.fileAnexos #anexos li { margin-bottom: 1%;}
+
+
+.bodyFileUpload {
+	width: 88%;
+	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%; 
+	font-family: 'OpenSans-Light';
 }
 
-#fale_conosco #form_fale {
+.bodyFileUpload h1 {font-size: 24px;}
 
+
+.listaArquivos {
+    width: 86%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Open Sans';
 }
-
-#fale_conosco #form_fale label {
-	width: 100%;	
-}
-
-#fale_conosco #form_fale input {
-	border: 1px solid #E0E0E0;
-	width: 90%;
-	height: 8%;
-	margin-bottom: 7%;
-}
-
-#fale_conosco #form_fale textarea  {
-	border: 1px solid #E0E0E0;
-	width: 95%;
-}
-
-#fale_conosco #form_fale .col2 input, #fale_conosco #form_fale .col2 label {
-	margin-left: 9%;
-}
-
-#onde_estamos {
-
-}
-
-#onde_estamos h1 {
-	background: #DC7BA7;
-	margin: 0;
-	padding-top: 1%;
-	padding-bottom: 1%;
-}
-
-#onde_estamos img {
-	width: 100%;
-}
-
-.alert {
-	display: none;
-	margin-left: 0%;
-	background: #fcf8e3;
-	border: 1px solid #faebcc;
-	color: #8a6d3b;
-	width: 100%;
-	padding: 1%;
-}
-
-.alert h4{
-	font-weight: bold;
+.listagem {
+	margin-top: 5%;
+	border: 1px solid #e0e0d3;
 	padding-left: 2%;
+	padding-bottom: 2%;
 }
 
-.alert p {
-	padding-left: 2%;
+.listagem h2 {
+	color: #b16f12;
+	font-size: 24px;
+	text-decoration: underline;
 }
 
-.alert-info {
-	background: #D4FCD2;
-	border: 1px solid #A8CEA9;
-	color: #3F8848;
-}
+.listagem h3 { font-size: 16px; margin-bottom: 3%;}
 
-.alert button.close {
-	margin-right: 0% !important;
-}
-
-.sucesso {
-	display: block !important;
-}
-
-/* Página de Notícias */
-#noticias {
-	padding-bottom: 5%;
-	padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 1%;
-	overflow: hidden;
-	background: #FBFBFB;
-	margin-top: 3px;
-}
-
-#noticias h1 {
-	margin-bottom: 0;
-}
-
-#noticias h2 {
-	margin-top: 0;
-}
-
-#noticias h3 {
-	width: 61%;
-	margin-top: 4%;
-}
-
-#noticias p {
-
-}
-
-#noticias .intro {
-	padding-left: 0;
-	padding-top: 5%;
-	padding-bottom: 5%;
-}
-
-#noticias .intro img {
-	float: left;
-	padding-right: 5%;
-}
-
-#noticias .intro p {
-	margin-bottom: 2%;
-}
-
-#noticias article {
-	padding-bottom: 5%;
-	padding-left: 0;
-}
-
-#noticias article h1 {
-	margin-bottom: 3%;
-	margin-top: 0;
-}
-
-#noticias article p {
-	margin-bottom: 1.5%;
-}
-
-#noticias article img {
-	float: left;
-	margin-right: 2%;
-	margin-top: 1%;
-	margin-bottom: 1%;
-}
-
-
-#noticias .com_img img {
-	padding: 2%;
-}
-
-
-/* Página de Quem Somos */
-#quem_somos {
-	padding-bottom: 3%;
-	overflow: hidden;
-	background: #F7F7F7;
-}
-
-#quem_somos .size-full {
-	width: 100%;
-	height: auto;
-}
-
-#quem_somos .missao {
-	padding-top: 5%;
-	padding-bottom: 5%;
-}
-
-#quem_somos .missao h1 {
-	margin-bottom: 3%;
-}
-
-#quem_somos .missao p {
-	width: 60%;
-	margin: auto;
-	margin-bottom: 2%;
-}
-
-#quem_somos .solucoes {
-	padding-top: 7%;
-	padding-bottom: 7%;
-	background: url(../imgs/quem_somos_2.jpg) no-repeat;
-	background-size: cover;
-}	
-
-#quem_somos .solucoes h1 {
-	margin-bottom: 3%;
-}
-
-#quem_somos .solucoes p {
-	width: 60%;
-	margin: auto;
-	margin-bottom: 2%;
-}
-
-#quem_somos .corpo {
-	padding-top: 5%;
-	padding-bottom: 5%;
-}
-
-#quem_somos .corpo h1 {
-	margin-bottom: 3%;
-}
-
-#quem_somos .corpo p {
-	width: 60%;
-	margin: auto;
-	margin-bottom: 2%;
-}
-
-#quem_somos .elemento {
-	overflow: hidden;
-	margin-bottom: 4%;
-	margin-left: 7%;
-	margin-right: 7%;
-	background: white;
-}
-
-#quem_somos .corpo-1,#quem_somos .corpo-2 {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-#quem_somos .corpo-1 h1, #quem_somos .corpo-2 h1 {
-	width: 75%;
-	margin: auto;
-	margin-top: 6%;
-}
-
-#quem_somos .corpo-1 p {
-	overflow: hidden;
-	width: 60%;
-	float: left;
-	margin-left: 12%;
-	margin-top: 1%;
-}
-
-#quem_somos .corpo-2 p {
-	overflow: hidden;
-	width: 60%;
-	float: right;
-	margin-top: 1%;
-	margin-right: 12%;
-}
-
-#quem_somos .corpo-1 img, #quem_somos .corpo-2 img {
-	width: 54%;
-}
-
-
-#single {
-	padding-bottom: 5%;
-	padding-left: 7%;
-	padding-right: 7%;
-	padding-top: 1%;
-	overflow: hidden;
-	min-height: 50%;
-}
-
-#single h1 {
-	margin-bottom: 3%;
-}
-
-#single img {
-	float: left;
-	margin-right: 2%;
-	margin-bottom: 1%;
-}
-
-.line {
-	overflow: hidden;
-}
-
-.border_bottom {
-	border-bottom: 1px solid #8D0354;
-
-}
-
-.hr_traco {
-	height: 10px;
-	background: #8C0052;
-	width: 85%;
-	margin: 0;
-}
-
-.hr_traco_p {
-	height: 3px;
-	background: #DC7BA7;
-	width: 10%;
-}
-
-.hr_traco_m {
-	height: 3px;
-	background: #DC7BA7;
-	width: 17%;
-}
-
-.hr_traco_h {
-	height: 16px;
-	background: #8D0354;
-	width: 15%;
-	margin-bottom: 0;
-}
-
-.hr_traco_p_b {
-	height: 3px;
-	background: white;
-	width: 10%;
-}
-
-.btn-rosa {
-	background: #DC7BA7;
-	border: 1px solid white;
-	padding: 1% 3%;
-	border-radius: 0;
-}
-.btn-rosa:hover {
-	background: white !important;
-	color: #DC7BA7;
-}
-
-.btn-branco {
-	border: 1px solid #8C0253;
-	padding: 1% 3%;
-	border-radius: 0;
-	color: #8C0253;
-	margin-top: 2%;
-}
-
-.btn-branco:hover {
-	background: #8C0253 !important;
-	color: white;
-}
-
-.right {
-	float: right;
-}
-
-.left {
-	float: left;
-}
-
-.align_right {
-	text-align: right;
-}
-
-
-.align_left {
-	text-align: left;
-}
+.listagem #anexos li {margin-bottom: 1%;}
 
 @media only screen and (min-width : 769px) and (max-width : 1024px) {
 	#topo_2 header h1 img {

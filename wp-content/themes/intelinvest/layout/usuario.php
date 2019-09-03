@@ -41,6 +41,7 @@ class Usuario {
 		$html  = "<select name='usuario' id='usuario'>";
 
 		foreach($result_set as $usr){
+			
 			if( $id == $usr->id){
 				$html .= "<option value='".$usr->id . "' selected=selected>". $usr->nome;
 				$html .= "</option>";
@@ -124,8 +125,8 @@ class Usuario {
 			$usuario = Usuario::find_by_id($id);
 		}
 		$perfil = Perfil::retornaPerfil($usuario->id_perfil);
-		return $perfil->nome;
-		// return $perfil->nome == "Administrador" ? true : false;
+		// return $perfil->nome;
+		return $perfil->nome == "Administrador" ? true : false;
 	}
 	
 	//Função para validar se o email já está cadastrado na base de dados

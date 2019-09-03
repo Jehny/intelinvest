@@ -1,10 +1,14 @@
+<?php 
+	global $urlHost;
+
+	$urlHost = "http://".$_SERVER['HTTP_HOST'] . "/intelinvest";
+?>
 <html>
 	<head>
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
-		<link rel="stylesheet" href="../css/swipebox.css" type="text/css" />
 		<link rel="stylesheet" href="../css/icofont.css" type="text/css" />
 		<link rel="stylesheet" href="../css/jquery.modal.min.css" type="text/css" />
 		<link rel="stylesheet" href="../css/intelinvest.css" type="text/css" />
@@ -12,8 +16,6 @@
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/jquery.modal.min.js"></script>
-		<script src="../js/jquery.swipebox.js"></script>
-		<script src="../js/stellar.js"></script>
 		<script src="../js/jquery.mask.min.js"></script>
 		<script src="../js/intelinvest.js"></script>
 

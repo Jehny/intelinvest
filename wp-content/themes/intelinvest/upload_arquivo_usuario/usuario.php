@@ -1,5 +1,5 @@
 <?php
-
+require_once('database.php');
 class Usuario {
 
 	protected static $table_name = "wp_users_system";
@@ -38,17 +38,19 @@ class Usuario {
 	public function criaSelectUsuario($id = 0){
 		$sql = "SELECT * FROM ". self::$table_name;
 		$result_set = self::find_by_sql($sql);
-		$html  = "<select name='usuario' id='usuario'>";
+		$html  = "<select name='usuario' id='usuario' class='form-control'>";
 
 		foreach($result_set as $usr){
-			if( $id == $usr->id){
-				$html .= "<option value='".$usr->id . "' selected=selected>". $usr->nome;
-				$html .= "</option>";
-			}else{
-				$html .= "<option value='".$usr->id . "'>". $usr->nome;
-				$html .= "</option>";
+			$nome_perfil = Perfil::retornaNome($usr->id_perfil);
+			if($nome_perfil != "Administrador"){
+				if( $id == $usr->id){
+					$html .= "<option value='".$usr->id . "' selected=selected>". $usr->nome . " - ". $usr->cpf . " - " . $nome_perfil;
+					$html .= "</option>";
+				}else{
+					$html .= "<option value='".$usr->id . "'>". $usr->nome . " - ". $usr->cpf . " - " . $nome_perfil;
+					$html .= "</option>";
+				}
 			}
-
 		}
 
 
@@ -168,12 +170,9 @@ class Usuario {
 	}
 
 	public static function find_by_id( $id = 0 ) {
-		global $wpdb;
-		$sql  = "SELECT * FROM " . self::$table_name . " ";
-		$sql .= "WHERE id = '{$id}'";
-		$sql .= "LIMIT 1";
-		$result = $wpdb->get_row($sql);
-		return $result;
+		$result_array = self::find_by_sql("SELECT * FROM " . self::$table_name . " WHERE id={$id}");
+
+		return !empty($result_array) ? array_shift($result_array) : false;
 	}
 
 	public static function find_by_sql( $sql = "" ) {

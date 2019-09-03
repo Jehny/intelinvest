@@ -1,10 +1,13 @@
 <?php
     include "database.php";
     include "usuario.php";
+    include "perfil.php";
+    include "arquivo.php";
     include "header.php";
     include "menu2.php";
 
     $usuario = new Usuario();
+    
     $caminho = 'uploads';
     
 // Quando a ação for para remover anexo
@@ -25,17 +28,40 @@ if (isset($_POST['acao']) == 'removeAnexo')
 // Se enviado o formulário
 if (isset($_POST['enviar']))
 {
-    $arquivo = $_POST['anexos'][0];
-    $idUser = $_POST['usuario'];
-    $novoCaminho = $caminho . '/'.$idUser; 
-    $usuario->criarNovaPasta($caminho, $idUser);
-    $usuario->moverArquivo($arquivo, $caminho, $novoCaminho);
-    // fazer inserção no banco aqui
-    
-    echo 'Arquivos Enviados: ';
-    echo '<pre>';
-        print_r($_POST['anexos']);
-    echo '</pre>';
+    if(isset($_POST['anexos'])){
+        $arquivo = $_POST['anexos'][0];
+        $idUser = $_POST['usuario'];
+        $user = Usuario::find_by_id($idUser);
+        $id_perfil = $user->id_perfil;
+        $dt_cad = $usuario->pegaDataAtual();
+        $novoCaminho = $caminho . '/'.$idUser; 
+        $usuario->criarNovaPasta($caminho, $idUser);
+        $usuario->moverArquivo($arquivo, $caminho, $novoCaminho);
+
+         // fazer inserção no banco aqui
+        $files = new Arquivo();
+        $files->pasta = $novoCaminho;
+        $files->nome = $arquivo;
+        $files->id_user = $idUser;
+        $files->id_perfil = $id_perfil;
+        $files->dt_cad = $dt_cad;
+         
+        if($files->save()) {
+           $message = "<div class='sucesso alert alert-info'>
+                        <button type='button' class='close' data-dismiss='alert'>×</button>
+                        <h4>Sucesso!</h4>
+                        <p>Arquivo enviado com sucesso! </p>
+                        </div>";
+        }
+    } else {
+         $message = "<div class='sucesso alert alert-danger'>
+                        <button type='button' class='close' data-dismiss='alert'>×</button>
+                        <h4>Ooops!</h4>
+                        <p>Algum arquivo deve ser anexado!</p>
+                        </div>";
+    }
+
+
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,21 +129,25 @@ function removeAnexo(obj)
 </head>
 
 <body>
+<section class="bodyFileUpload">
+    <?php if(isset($message)){
+                echo $message;
+                } ?>
 
-<h1>Upload dinâmico com jQuery/PHP</h1>
+    <h1>Upload arquivos</h1>
+     <iframe src="upload.php" frameborder="0" scrolling="no"></iframe>
+    <form id="upload" action="index.php" method="post">
+        <div class="form-group row-fluid selectUser">
+             <?php $usuario->criaSelectUsuario(); ?>
+        </div>
+        <input type="submit" name="enviar" value="Enviar" class="btn btn-warning" />
+    </form>
 
-
-
-<ul id="anexos"></ul>
-<iframe src="upload.php" frameborder="0" scrolling="no"></iframe>
-
-<form id="upload" action="index.php" method="post">
-    <div>
-        <?php $usuario->criaSelectUsuario(); ?>
+     <div class="row-fluid fileAnexos">
+        <ul id="anexos"></ul>   
     </div>
-    <input type="submit" name="enviar" value="Enviar" />
-</form>
-
+   
+</section>
 </body>
 </html>
 

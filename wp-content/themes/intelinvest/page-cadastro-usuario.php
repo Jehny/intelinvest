@@ -13,6 +13,7 @@
 			$usuario = Usuario::find_by_id($_GET['user_id_intelinvest']);
 			$perfil = Perfil::retornaPerfil($usuario->id_perfil);
 			$idUser = $_GET['user_id_intelinvest'];
+
 		}
 	}
 
@@ -81,14 +82,14 @@
 		}
 	}
 
-	if(isset($_POST['submit2'])){
+	if(isset($_POST['submit'])){
 
 		$nome = $_POST['nome'];
 		$cpf = formatarCPF($_POST['CPF']);
 		$dt_nasc = $_POST['dt_nasc'];
 		$end = $_POST['endereco'];
-		$tel = limparFormatacaoContato($_POST['telefone']);
-		$email = $_POST['email'];
+		$tel = limpar($_POST['telefone']);
+		$email = trim($_POST['email']);
 		$senha = $_POST['senha'];
 		
 		$perfil = $_POST['perfil_user'];
@@ -114,7 +115,7 @@
 				'dt_cadastro'=>$dt_cad
 			);
 			global $wpdb;
-
+			echo validaEmail($email);
 			if(validaEmail($email)){
 				$message = "<div class='sucesso alert alert-danger'>
 					<button type='button' class='close' data-dismiss='alert'>×</button>
@@ -167,8 +168,14 @@
 		<?php if(isset($message)){
 				echo $message;
 				} ?>
-		<h1>Cadastre-se na Intelinvest!</h1>
-		<h2>Por favor, cadastre-se para continuar</h2>
+
+		<?php if($idUser != 0 ){ ?>
+			<h1>Atualize seu cadastro!</h1>
+			<h2>Mantenha seus dados atualizados.</h2>
+		<?php } else { ?>
+			<h1>Cadastre-se na Intelinvest!</h1>
+			<h2>Por favor, cadastre-se para continuar</h2>
+		<?php } ?>
 		<form action="" method="POST" accept-charset="utf-8">
 			<fieldset>
 				<legend>Nome</legend>

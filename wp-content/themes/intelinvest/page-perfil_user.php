@@ -62,7 +62,9 @@
 	<div class="tab-content">
 	  <div class="tab-pane active" id="home" role="tabpanel"> Home </div>
 	  <div class="tab-pane" id="profile" role="tabpanel">Profile</div>
-	  <div class="tab-pane" id="messages" role="tabpanel">Messages</div>
+	  <div class="tab-pane" id="messages" role="tabpanel">
+			<embed src="../upload_arquivo_usuario/uploads/1/banco.pdf" width="760" height="500" type='application/pdf'>
+	  </div>
 	  <div class="tab-pane" id="settings" role="tabpanel">settings</div>
 	</div>
 	

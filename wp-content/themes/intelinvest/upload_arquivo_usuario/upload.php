@@ -69,10 +69,10 @@ if (isset($_FILES['arquivo']))
 <body> -->
 
 <form id="upload" action="upload.php" method="post" enctype="multipart/form-data">
-    
-    <label>Arquivo: </label> <span id="status" style="display: none;"><img src="image/loader.gif" alt="Enviando..." /></span> <br />
-    <input type="file" name="arquivo" id="arquivo" />
-        
+    <div class="form-group uploadFile row-fluid">
+        <label>Arquivo: </label> <span id="status" style="display: none;"><img src="image/loader.gif" alt="Enviando..." /></span> <br />
+        <input type="file" name="arquivo" id="arquivo" />
+    </div>    
 </form>
 <!-- 
 </body>

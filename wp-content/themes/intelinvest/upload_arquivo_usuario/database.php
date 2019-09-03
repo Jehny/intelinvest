@@ -70,7 +70,8 @@ class MySQLDatabase {
 			if( $this->magic_quotes_active ) {
 				$value = stripslashes( $value );
 			}
-			$value = mysql_real_escape_string( $value );
+			$value = $this->db->quote($value );
+			// $value =  $value ;
 		} else { // before PHP v4.3.0
 			// if magic_quotes aren't already on then add slashes manually
 			if( !$this->magic_quotes_active ) {
@@ -91,7 +92,7 @@ class MySQLDatabase {
 	}
 	
 	public function affected_rows() {
-		return mysql_affected_rows($this->connection);
+		return $this->db->rowCount();
 	}
 	
 	private function confirm_query($result) {
@@ -107,7 +108,8 @@ class MySQLDatabase {
 			$output .= '	<body id="problem">';
 			$output .= '		<div id="pagina"><section><header>';
 			$output .= "<h1>Database query failed: " . mysql_error() . "</h1>";
-			$output .= "<p>Last SQL Query: " . $this['last_query'] . "</p>";
+			// $output .= "<p>Last SQL Query: " . $result . "</p>";
+			$output .= "<p>Last SQL Query: " . $this->last_query . "</p>";
 			$output .= '</header></section>';
 			$output .= '</body></html>';
 			die($output);

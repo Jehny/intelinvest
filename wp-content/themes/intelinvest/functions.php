@@ -284,11 +284,32 @@
 	   return $campoLimpo;
 	}
 
+	function limpar($campo){
+		$campoLimpo = str_replace("(", "", $campo);
+		$campoLimpo = str_replace(")", "", $campoLimpo);
+		$campoLimpo = str_replace("-", "", $campoLimpo);
+		$campoLimpo = str_replace(" ", "", $campoLimpo);
+		$campoLimpo = trim($campoLimpo);
+
+	   return $campoLimpo;
+	}
+
+	function limparFormatacao($campo){
+		$campoLimpo = str_replace("(", "", $campo);
+		$campoLimpo = str_replace(")", "", $campoLimpo);
+		$campoLimpo = str_replace("-", "", $campoLimpo);
+		$campoLimpo = str_replace(".", "", $campoLimpo);
+		$campoLimpo = str_replace("/", "", $campoLimpo);
+		$campoLimpo = str_replace(":", "", $campoLimpo);
+	   return $campoLimpo;
+
+	}
+
 	function validaCpfExiste($cpf = ""){
 
 		global $wpdb;
 		$sql  = "SELECT * FROM wp_users_system";
-		$sql .= "WHERE cpf = '{$cpf}'";
+		$sql .= " WHERE cpf = '{$cpf}'";
 
 		$result = $wpdb->get_row($sql);
 
@@ -300,7 +321,7 @@
 
 		global $wpdb;
 		$sql  = "SELECT * FROM wp_users_system";
-		$sql .= "WHERE cpf = '{$cpf}'";
+		$sql .= " WHERE cpf = '{$cpf}'";
 
 		$result = $wpdb->get_row($sql);
 
@@ -313,14 +334,13 @@
 	}
 
 	//Função para validar se o email já está cadastrado na base de dados
-	function validaEmail($email = ""){
+	function validaEmail($email){
 		global $wpdb;
 
 		$sql  = "SELECT * FROM wp_users_system";
-		$sql .= "WHERE email = '{$email}'";
-		
+		$sql .= " WHERE email = '{$email}'";
+		$sql .= " LIMIT 1";
 		$result = $wpdb->get_row($sql);
-
 		return !empty($result) ? true : false;
 
 	}
@@ -329,7 +349,7 @@
 		global $wpdb;
 
 		$sql  = "SELECT * FROM wp_users_system";
-		$sql .= "WHERE id = '{$id}'";
+		$sql .= " WHERE id = '{$id}'";
 		
 		$result = $wpdb->get_row($sql);
 		if(!empty($result) && ($result->email == $email)){

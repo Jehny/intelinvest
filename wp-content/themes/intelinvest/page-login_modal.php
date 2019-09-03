@@ -8,7 +8,11 @@
 	
 	if(isset($_POST['submit'])) {
 		if($email == "" || $senha == ""){
-			$message = "Login ou senha inválidos.";
+			$message = "<div class='sucesso alert alert-danger'>
+						<button type='button' class='close' data-dismiss='alert'>×</button>
+						<h4>Ooops!</h4>
+						<p>E-mail e senha não podem ser vazios! </p>
+						</div>";
 		}else {
 			//Checar se o email e a senha existem
 			$found_user = Usuario::autenticar($email, $senha);
@@ -17,14 +21,23 @@
 
 				redirect_to("perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
 			} else {
-				$message = "Email não coincide com a senha.";
+				$message = "<div class='sucesso alert alert-danger'>
+						<button type='button' class='close' data-dismiss='alert'>×</button>
+						<h4>Ooops!</h4>
+						<p>Verifique seu e-mail e senha! </p>
+						</div>";
 			}
 		}
 	}
-
+	
 ?>
 
-<div class="login_modal row-fluid" id="loginModal">
+
+
+<div class="login_modal login_modalPage row-fluid" id="loginModal">
+	<?php if(isset($message)){
+		echo $message;
+		} ?>
 	<div class="col-xs-12 col-sm-12 col-md-6 image">
 		<img src="<?php bloginfo('template_url'); ?>/img/login_modal.png" alt="">
 	</div>
@@ -43,7 +56,7 @@
 			<p class="esqueci"><a href="" title="">Esqueceu a Senha?</a></p>
 			<p class="botoes">
 				<button type="submit" name="submit">Login</button>
-				<a href="" title="">Criar conta</a>
+				<a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" title="">Criar conta</a>
 			</p>
 		</form>
 	</div>
