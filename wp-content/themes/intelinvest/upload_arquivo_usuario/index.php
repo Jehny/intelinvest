@@ -34,6 +34,7 @@ if (isset($_POST['enviar']))
         $user = Usuario::find_by_id($idUser);
         $id_perfil = $user->id_perfil;
         $dt_cad = $usuario->pegaDataAtual();
+        $tipo = $_POST['tipoArquivo'];
         $novoCaminho = $caminho . '/'.$idUser; 
         $usuario->criarNovaPasta($caminho, $idUser);
         $usuario->moverArquivo($arquivo, $caminho, $novoCaminho);
@@ -45,6 +46,7 @@ if (isset($_POST['enviar']))
         $files->id_user = $idUser;
         $files->id_perfil = $id_perfil;
         $files->dt_cad = $dt_cad;
+        $files->tipo = $tipo;
          
         if($files->save()) {
            $message = "<div class='sucesso alert alert-info'>
@@ -138,7 +140,18 @@ function removeAnexo(obj)
      <iframe src="upload.php" frameborder="0" scrolling="no"></iframe>
     <form id="upload" action="index.php" method="post">
         <div class="form-group row-fluid selectUser">
-             <?php $usuario->criaSelectUsuario(); ?>
+            <div class="col-md-4">
+                 <?php $usuario->criaSelectUsuario(); ?>
+            </div>
+            <div class="col-md-4">
+                <select name="tipoArquivo" id="tipoArquivo">
+                    <option value="Avisos">Avisos</option>
+                    <option value="Informativos">Informativos</option>
+                    <option value="Analises">Análises</option>
+                    <option value="Investimentos">Investimentos</option>
+                    <option value="Imposto_de_renda">Imposto de renda</option>
+                </select>
+            </div>
         </div>
         <input type="submit" name="enviar" value="Enviar" class="btn btn-warning" />
     </form>

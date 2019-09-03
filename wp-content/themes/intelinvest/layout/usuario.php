@@ -179,7 +179,7 @@ class Usuario {
 	}
 
 	public static function find_by_sql( $sql = "" ) {
-		global $database;
+		global $wpdb;
 		$result_set = $database->query($sql);
 		$object_array = array();
 		if($result_set->execute()){
@@ -189,6 +189,17 @@ class Usuario {
 		}
 
 		return $object_array;
+	}
+
+	public static function find_files_users($tipo, $idUser){
+		global $wpdb;
+		$sql  = "SELECT * FROM wp_arquivos ";
+		$sql .= "WHERE id_user = '{$idUser}' AND tipo = '{$tipo}' ";
+		$sql .= "LIMIT 1";
+		// echo $sql;
+		$result = $wpdb->get_results($sql);
+		return $result;
+	
 	}
 
 

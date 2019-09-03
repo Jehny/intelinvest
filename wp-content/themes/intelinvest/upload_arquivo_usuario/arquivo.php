@@ -3,7 +3,7 @@ require_once('database.php');
 class Arquivo {
 	
 	protected static $table_name = "wp_arquivos";
-	protected static $db_fields = array('id', 'nome', 'pasta', 'id_user', 'id_perfil', 'dt_cad');
+	protected static $db_fields = array('id', 'nome', 'pasta', 'id_user', 'id_perfil', 'tipo', 'dt_cad');
 
 	public $id;
 	public $pasta;
@@ -11,6 +11,7 @@ class Arquivo {
 	public $id_user;
 	public $id_perfil;
 	public $dt_cad;
+	public $tipo;
 	
 	private $temp_path;
 	// protected $upload_dir = UPLOAD;

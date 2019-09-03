@@ -824,11 +824,13 @@ footer .coluna2 p {
 
 .nav_arquivos .tab-content {
 	margin-top: 4%;
+	margin-bottom: 4%;
 }
 
 .nav_arquivos .tab-content .tab-pane {
 	background: #f3f3f3;
-	padding: 5%;
+	padding: 2%;
+	overflow: hidden;
 }
 .nav_arquivos .nav-tabs > li { float: none;}
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {

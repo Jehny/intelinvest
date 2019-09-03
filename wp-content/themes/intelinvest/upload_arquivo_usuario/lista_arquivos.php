@@ -104,7 +104,7 @@
  				 					if(file_exists($fileExist)){ 
  				 							$urlExcluir = "excluirArquivo.php?acao=acao&id=".$file->id."&idU=".$objId."&arquivo=".$file->nome;
  				 						?>
- 				 						<li lang="<?php echo $file->nome;?>" id="<?php echo $file->id; ?>" idU="<?php echo $objId;?>">	<?php echo $file->nome;?>
+ 				 						<li lang="<?php echo $file->nome;?>" id="<?php echo $file->id; ?>" idU="<?php echo $objId;?>">	<?php echo $file->nome . " - " . $file->tipo;?>
 											<a href="<?php echo $urlExcluir; ?>"><img src="image/remove.png" alt="Remover" class="remover"/></a>
  				 						</li>
  				 						<!-- echo "<li lang='". $file->nome ."' id='".$file->id."'>". $file->nome ."<img src='image/remove.png' alt='Remover' class='remover' onclick='removeAnexo(this)'"\/>" </li>"; -->
