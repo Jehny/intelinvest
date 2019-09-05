@@ -1,5 +1,6 @@
 <?php 
 	global $urlHost;
+	
 
 	$urlHost = "http://".$_SERVER['HTTP_HOST'] . "/intelinvest";
 ?>

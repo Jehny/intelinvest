@@ -6,6 +6,8 @@
 		global $perfil;
 		global $usuario;
 		$session = new Session;
+		global $urlArquivos; 
+
 	?>
 
 <html>

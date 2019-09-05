@@ -27,7 +27,7 @@
 
 
 <div class="login_modal modal row-fluid" id="loginModal">
-	<div class="col-xs-12 col-sm-12 col-md-6 image">
+	<div class="col-xs-12 col-sm-12 col-md-6 image image2">
 		<img src="<?php bloginfo('template_url'); ?>/img/login_modal.png" alt="">
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-6">

@@ -32,12 +32,14 @@
 	
 ?>
 
-
-
-<div class="login_modal login_modalPage row-fluid" id="loginModal">
+</div>
+<div class="row-fluid login_modalMessage">
 	<?php if(isset($message)){
 		echo $message;
 		} ?>
+</div>
+<div class="login_modal login_modalPage row-fluid" id="loginModal">
+	
 	<div class="col-xs-12 col-sm-12 col-md-6 image">
 		<img src="<?php bloginfo('template_url'); ?>/img/login_modal.png" alt="">
 	</div>

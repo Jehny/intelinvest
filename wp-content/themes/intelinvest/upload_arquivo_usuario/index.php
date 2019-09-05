@@ -71,7 +71,7 @@ if (isset($_POST['enviar']))
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Upload dinâmico com jQuery/PHP</title>
+<title>Upload arquivos</title>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 
@@ -144,7 +144,7 @@ function removeAnexo(obj)
                  <?php $usuario->criaSelectUsuario(); ?>
             </div>
             <div class="col-md-4">
-                <select name="tipoArquivo" id="tipoArquivo">
+                <select name="tipoArquivo" id="tipoArquivo" class="form-control">
                     <option value="Avisos">Avisos</option>
                     <option value="Informativos">Informativos</option>
                     <option value="Analises">Análises</option>
