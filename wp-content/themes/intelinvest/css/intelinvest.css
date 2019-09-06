@@ -952,7 +952,10 @@ footer .coluna2 p {
 .selectUser {
 	margin-top: 1%;
 	margin-bottom: 2%;
+	overflow: hidden;
 }
+.btnEnviar {}
+.btnEnviar button{}
 
 .fileAnexos {
 	border: 1px solid #b89237;
@@ -1024,12 +1027,12 @@ footer .coluna2 p {
 .boxArquivo {
 	border: 1px solid #ddd;
 	background: white;
+	min-height: 800px;
 }
 
 .boxArquivo .arquivoPDF {
 	margin-top: 0;
 }
-
 
 @media only screen and (min-width : 769px) and (max-width : 1024px) {
 	#topo_2 header h1 img {

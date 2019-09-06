@@ -9,6 +9,7 @@
     $usuario = new Usuario();
     
     $caminho = 'uploads';
+    $caminho_perfil = 'perfil_uploads';
     
 // Quando a ação for para remover anexo
 if (isset($_POST['acao']) == 'removeAnexo')
@@ -35,19 +36,34 @@ if (isset($_POST['enviar']))
         $id_perfil = $user->id_perfil;
         $dt_cad = $usuario->pegaDataAtual();
         $tipo = $_POST['tipoArquivo'];
-        $novoCaminho = $caminho . '/'.$idUser; 
-        $usuario->criarNovaPasta($caminho, $idUser);
-        $usuario->moverArquivo($arquivo, $caminho, $novoCaminho);
+       
+        $tipo_perfil = $_POST['tipoPerfil'];
 
-         // fazer inserção no banco aqui
         $files = new Arquivo();
-        $files->pasta = $novoCaminho;
-        $files->nome = $arquivo;
-        $files->id_user = $idUser;
-        $files->id_perfil = $id_perfil;
-        $files->dt_cad = $dt_cad;
-        $files->tipo = $tipo;
-         
+
+        if($tipo_perfil == '0'){
+             // fazer inserção no banco aqui para usuário e tipo
+            $novoCaminho = $caminho . '/'.$idUser;
+            $usuario->criarNovaPasta($caminho, $idUser);
+            $usuario->moverArquivo($arquivo, $caminho, $novoCaminho); 
+            $files->pasta = $novoCaminho;
+            $files->nome = $arquivo;
+            $files->id_user = $idUser;
+            $files->id_perfil = $id_perfil;
+            $files->dt_cad = $dt_cad;
+            $files->tipo = $tipo;
+        } else {
+            //fazer inserção para perfil
+            $novoCaminho = $caminho_perfil . '/'.$tipo_perfil;
+            $usuario->criarNovaPasta($caminho_perfil, $tipo_perfil);
+            $usuario->moverArquivo($arquivo, $caminho, $novoCaminho); 
+            $files->pasta = $novoCaminho;
+            $files->nome = $arquivo;
+            $files->id_user = "";
+            $files->id_perfil = "";
+            $files->dt_cad = $dt_cad;
+            $files->tipo = "Perfil";
+        }         
         if($files->save()) {
            $message = "<div class='sucesso alert alert-info'>
                         <button type='button' class='close' data-dismiss='alert'>×</button>
@@ -141,9 +157,11 @@ function removeAnexo(obj)
     <form id="upload" action="index.php" method="post">
         <div class="form-group row-fluid selectUser">
             <div class="col-md-4">
+                <p>Usuário</p>
                  <?php $usuario->criaSelectUsuario(); ?>
             </div>
             <div class="col-md-4">
+                <p>Tipo</p>
                 <select name="tipoArquivo" id="tipoArquivo" class="form-control">
                     <option value="Avisos">Avisos</option>
                     <option value="Informativos">Informativos</option>
@@ -152,8 +170,20 @@ function removeAnexo(obj)
                     <option value="Imposto_de_renda">Imposto de renda</option>
                 </select>
             </div>
+             <div class="col-md-4">
+                <p>Perfil</p>
+                <?php $perfis = Perfil::retornaPerfilSemAdmin(); ?>
+                <select name="tipoPerfil" id="tipoPerfil" class="form-control">
+                    <option value="0">Selecione um perfil</option>
+                    <?php foreach ($perfis as $key) { ?>
+                    <option value="<?php echo $key->id; ?>"><?php echo $key->nome; ?></option>
+                    <?php } ?>
+                </select>
+             </div>
         </div>
-        <input type="submit" name="enviar" value="Enviar" class="btn btn-warning" />
+       <div class="btnEnviar">
+           <p> <button type="submit" name="enviar" value="Enviar" class="btn btn-warning">Enviar</button></p>
+       </div>
     </form>
 
      <div class="row-fluid fileAnexos">

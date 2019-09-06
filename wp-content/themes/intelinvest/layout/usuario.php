@@ -195,7 +195,6 @@ class Usuario {
 		global $wpdb;
 		$sql  = "SELECT * FROM wp_arquivos ";
 		$sql .= "WHERE id_user = '{$idUser}' AND tipo = '{$tipo}' ";
-		$sql .= "LIMIT 1";
 		// echo $sql;
 		$result = $wpdb->get_results($sql);
 		return $result;

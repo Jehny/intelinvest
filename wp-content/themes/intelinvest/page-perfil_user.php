@@ -82,10 +82,12 @@
 				<div class="col-md-1 col-sm-1 col-xs-1"></div>
 				<div class="col-md-8 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
-						<div class="tab-pane fade show" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
-							<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
+						<?php foreach ($result as $key) { ?>
+							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
 
-						</div>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			<?php } else {

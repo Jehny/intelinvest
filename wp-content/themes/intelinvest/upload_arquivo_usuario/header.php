@@ -18,7 +18,7 @@
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/jquery.modal.min.js"></script>
 		<script src="../js/jquery.mask.min.js"></script>
-		<script src="../js/intelinvest.js"></script>
+		<script src="../upload_arquivo_usuario/js/intelinvest2.js"></script>
 
 		<title>Intelinvest</title>
 		<link rel="shortcut icon" href="../img/icon_logo.png" />

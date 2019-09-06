@@ -18,6 +18,14 @@ class Perfil {
 		return $result;
 	}
 
+	public static function retornaPerfilSemAdmin($id = 0){
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE nome <> 'Administrador' ";
+		$result_array = self::find_by_sql($sql);
+		return $result_array;
+	}
+
 	public static function find_by_id( $id = 0 ) {
 		$result_array = self::find_by_sql("SELECT * FROM " . self::$table_name . " WHERE id={$id}");
 
