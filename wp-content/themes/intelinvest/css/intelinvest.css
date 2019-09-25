@@ -576,7 +576,7 @@ footer .coluna2 p {
 }
 
 .login_modal .image2 img {
-	height: 152%;
+	height: 75%;
 }
 
 .login_modal h1 {
@@ -947,6 +947,11 @@ footer .coluna2 p {
 /* upload de arquivos e listagem */
 .uploadFile {
 
+}
+
+.uploadFile p {
+	text-align: left;
+	margin-top: 2%;
 }
 
 .selectUser {

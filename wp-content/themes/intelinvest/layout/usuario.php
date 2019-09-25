@@ -83,21 +83,34 @@ class Usuario {
 		return $result;
 	}
 
-	public function alterarSenha(){
-		global $database;
-
+	public function alterarSenha($id = 0){
+		global $wpdb;
 		$this->senha = sha1($this->senha);
-		$sql = "UPDATE  " . self::$table_name . " SET  senha =  '" . $this->senha . "' WHERE id = " . $this->id;
-		$database->query($sql);
-		return ($database->affected_rows() == 1) ? true : false;
+		$result = $wpdb->update( 
+			self::$table_name, 
+			array( 
+				'senha' => $this->senha	// string
+			),  
+			array( 'id' => $id ), 
+			$format = null, 
+			$where_format = null );
+		
+		return ($result) ? true : false;
 	}
 
-	public function novaSenha($senha = ""){
-		global $database;
+	public function novaSenha($senha = "", $email){
+		global $wpdb;
 		$this->senha = sha1($senha);
-		$sql = "UPDATE  " . self::$table_name . " SET  senha =  '" . $this->senha . "' WHERE email = '" . $this->email . "'";
-		$database->query($sql);
-		return ($database->affected_rows() == 1) ? true : false;
+		$result = $wpdb->update( 
+			self::$table_name, 
+			array( 
+				'senha' => $this->senha	// string
+			),  
+			array( 'email' => $email ), 
+			$format = null, 
+			$where_format = null );
+		
+		return ($result) ? true : false;
 	}
 
 	public function getAvatar($size = 234) {

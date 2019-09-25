@@ -16,8 +16,16 @@
 				<li><a href="" class="margin">SERVIÇOS</a></li>
 				<li><a href="">SOBRE</a></li>
 				<li><a href="" class="margin border">CONTATO</a></li>
-			<?php $urlPainel = $urlHost."/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']); ?>
-			<li><a href="<?php echo $urlPainel; ?>" calss="">PAINEL</a>
+			<?php $urlPainel = $urlHost."/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']); 
+				$urlPerfil = $urlHost."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);
+			?>
+			<?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
+			<li><a href="<?php echo $urlPainel; ?>" class="">PAINEL</a></li>
+			<?php } else { 
+				?>
+				<li><a href="<?php echo $urlPerfil; ?>" class="">PERFIL</a></li>
+			<?php } ?>
+			<li><a href="<?php echo $urlHost; ?>/logout" class="logCad">LOGOUT</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -31,9 +39,15 @@
 			<li><a href="">SERVIÇOS</a></li>
 			<li><a href="">SOBRE</a></li>
 			<li><a href="" class="margin border">CONTATO</a></li>
-			<?php $urlPainel = $urlHost."/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']); ?>
-			<li><a href="<?php echo $urlPainel; ?>" calss="">PAINEL</a>
-			
+			<?php $urlPainel = $urlHost."/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']); 
+				$urlPerfil = $urlHost."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);
+			?>
+			<?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
+			<li><a href="<?php echo $urlPainel; ?>" class="">PAINEL</a></li>
+			<?php } else { ?>
+				<li><a href="<?php echo $urlPerfil; ?>" class="">PERFIL</a></li>
+			<?php } ?>
+			<li><a href="<?php echo $urlHost; ?>/logout" class="logCad">LOGOUT</a></li>
 		</ul>
 	</div>
 			

@@ -18,8 +18,12 @@
 			$found_user = Usuario::autenticar($email, $senha);
 			if($found_user) {
 				$session->login($found_user);
+				if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])){
+					redirect_to("painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
+				}else {
+					redirect_to("perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
+				}
 
-				redirect_to("perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
 			} else {
 				$message = "<div class='sucesso alert alert-danger'>
 						<button type='button' class='close' data-dismiss='alert'>×</button>

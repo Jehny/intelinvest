@@ -15,7 +15,12 @@
 			if($found_user) {
 				$session->login($found_user);
 
-				redirect_to("intelinvest/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
+				if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])){
+					redirect_to("intelinvest/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
+				}else {
+					redirect_to("intelinvest/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$found_user->id));
+				}
+				
 			} else {
 				$message = "Email não coincide com a senha.";
 			}
@@ -42,7 +47,7 @@
 				<legend>Senha</legend>
 				<p><input type="password" name="senha" placeholder="Informe sua senha"></p>
 			</fieldset>
-			<p class="esqueci"><a href="" title="">Esqueceu a Senha?</a></p>
+			<p class="esqueci"><a href="<?php echo get_bloginfo('home'); ?>/esqueci_minha_senha" title="">Esqueceu a Senha?</a></p>
 			<p class="botoes">
 				<button type="submit" name="submit">Login</button>
 				<a href="<?php echo get_bloginfo('home'); ?>/cadastro-usuario" title="">Criar conta</a>
