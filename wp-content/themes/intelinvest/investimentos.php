@@ -1,18 +1,18 @@
 <div class="row-fluid">
 	<div class="invest-box">
 		<div class="col-xs-12 col-sm-12 col-md-4 box">
-			<h3>ASSESSORIA PERSONALIZADA E
-EXCLUSIVA</h3>
+			<h3><a href="#investimentos" class="scroll" data-offset="0">ASSESSORIA PERSONALIZADA E
+EXCLUSIVA</a></h3>
 <img src="<?php bloginfo('template_url'); ?>/img/ico_acessoria.png">
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-4 box">
-			<h3>QUAL O SEU PERFIL?</h3>
+			<h3><a href="#perfil" class="scroll" data-offset="0">QUAL O SEU PERFIL?</a></h3>
 			<img src="<?php bloginfo('template_url'); ?>/img/ico_invista.png">
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-4 box">
-			<h3>INVISTA DO JEITO CERTO</h3>
+			<h3><a href="#servicos" class="scroll" data-offset="0">INVISTA DO JEITO CERTO</a></h3>
 			<img src="<?php bloginfo('template_url'); ?>/img/ico_perfil.png">
 		</div>
 	</div>
@@ -23,7 +23,7 @@ EXCLUSIVA</h3>
 			if($invest){
 				foreach ($invest as $inv){
 	?>
-	<div class="investimentos">
+	<div class="investimentos" id="investimentos">
 		<h3><?php echo get_field('titulo', $inv->ID); ?> </h3>
 		<p class="pontos"><span>..............................</span></p>
 	

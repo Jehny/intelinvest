@@ -2,7 +2,7 @@
 		<nav>
 			<ul class="list-inline">
 				<li><a href="#home" class="scroll" data-offset="0">HOME</a></li>
-				<li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li>
+				<!-- <li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li> -->
 				<li><a href="#servicos" class="margin scroll" data-offset="0">SERVIÇOS</a></li>
 				<li><a href="#sobre" class="scroll" data-offset="0">SOBRE</a></li>
 				<li><a href="contato" class="margin border">CONTATO</a></li>
@@ -30,7 +30,7 @@
 	  	</button>
 	  	<ul class="dropdown-menu" role="menu">
 	    	<li><a href="#home" class="scroll" data-offset="0">HOME</a></li>
-			<li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li>
+			<!-- <li><a href="#perfil" class="scroll" data-offset="0">PLANOS</a></li> -->
 			<li><a href="#servicos" class="margin scroll" data-offset="0">SERVIÇOS</a></li>
 			<li><a href="#sobre" class="scroll" data-offset="0">SOBRE</a></li>
 			<li><a href="contato" class="margin border">CONTATO</a></li>

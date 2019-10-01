@@ -244,10 +244,11 @@ body {
     margin-right: 5%;
 }
 
-.invest-box .box h3 {
+.invest-box .box h3 a, .invest-box .box h3 a:hover  {
 	font-family: 'OpenSans-CondLight';
 	color: #707070;
 	height: 60px;
+	text-decoration: none;
 }
 
 .invest-box .box img {
@@ -491,9 +492,15 @@ body {
 	overflow: hidden;
 	padding: 2% 6% 2% 6%;
 }
-.newsletter h1 {
+
+.newsletter .titulo {text-align: center;}
+.newsletter h1 a {
 	color: white;
 	font-size: 20px;
+}
+
+.newsletter h1 a:hover {
+	text-decoration: underline;
 }
 
 .newsletter form input {
@@ -856,6 +863,18 @@ footer .coluna2 p {
     list-style-image: url("../img/file.png");
 }
 
+.anexoList {
+	position: relative;
+	float: left;
+}
+
+.anexoList .verArquivo {float: left;}
+
+.anexoList .ver {float: left;}
+
+.anexoList .remover {position:absolute; margin-top: 10px;}
+
+
 #sobre {
 	padding-bottom: 3%;
 }
@@ -1023,6 +1042,8 @@ footer .coluna2 p {
 .listagem h3 { font-size: 16px; margin-bottom: 3%;}
 
 .listagem #anexos li {margin-bottom: 1%;}
+
+.listagem #anexos li .ver{cursor: pointer;}
 
 .boxListaArquivos {
 	border: 1px solid #ddd;

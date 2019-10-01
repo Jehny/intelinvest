@@ -58,6 +58,7 @@
 	    <a class="nav-link" data-toggle="tab" href="#avisos" role="tab">AVISOS</a>
 	  </li>
 	   <li class="nav-item">
+	   	 <a class="nav-link" data-toggle="tab" href="#enviados" role="tab">ENVIADOS</a>
 	  </li>
 	</ul>
 
@@ -97,10 +98,146 @@
 			}
 		?>
 	  </div>
-	  <div class="tab-pane" id="rentabilidade" role="tabpanel">Rentabilidade</div>
-	  <div class="tab-pane" id="informacoes" role="tabpanel"> Informações
+	 
+	  <div class="tab-pane" id="rentabilidade" role="tabpanel">
+		<?php
+			$result = Usuario::find_files_users("Rentabilidade", $usuario->id);
+			if($result) { ?>
+				<div class="col-md-3 boxListaArquivos">
+					<div class="listaArquivos">
+						<p class="title">Arquivos <i class="icofont-folder"></i></p>
+						<div class="list-group" id="myList" role="tablist">
+							<?php foreach ($result as $key) { ?>
+								<a class="list-group-item list-group-item-action" id="list-invest-list" data-toggle="list" href="<?php echo '#list-invest' . $key->id; ?>" role="tab" aria-controls="invest">
+									<i class="icofont-file-pdf"></i>
+									<span class="verArquivo" id="<?php echo $key->id; ?>"><?php echo $key->nome; ?></span>
+								</a>
+							<?php } ?>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-md-8 boxArquivo">
+					<div class="arquivoPDF tab-content" id="nav-tabContent">
+						<?php foreach ($result as $key) { ?>
+							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
+
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } else {
+				echo "Ainda não existe arquivo para esta categoria.";
+			}
+		?>
 	  </div>
-	  <div class="tab-pane" id="avisos" role="tabpanel">Avisos</div>
+
+	  <div class="tab-pane" id="informacoes" role="tabpanel">
+	  	<?php
+			$result = Usuario::find_files_users("Informações", $usuario->id);
+			if($result) { ?>
+				<div class="col-md-3 boxListaArquivos">
+					<div class="listaArquivos">
+						<p class="title">Arquivos <i class="icofont-folder"></i></p>
+						<div class="list-group" id="myList" role="tablist">
+							<?php foreach ($result as $key) { ?>
+								<a class="list-group-item list-group-item-action" id="list-invest-list" data-toggle="list" href="<?php echo '#list-invest' . $key->id; ?>" role="tab" aria-controls="invest">
+									<i class="icofont-file-pdf"></i>
+									<span class="verArquivo" id="<?php echo $key->id; ?>"><?php echo $key->nome; ?></span>
+								</a>
+							<?php } ?>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-md-8 boxArquivo">
+					<div class="arquivoPDF tab-content" id="nav-tabContent">
+						<?php foreach ($result as $key) { ?>
+							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
+
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } else {
+				echo "Ainda não existe arquivo para esta categoria.";
+			}
+		?>
+	  </div>
+	  <div class="tab-pane" id="avisos" role="tabpanel">
+		<?php
+			$result = Usuario::find_files_users_avisos($usuario->id);
+			if($result) { ?>
+				<div class="col-md-3 boxListaArquivos">
+					<div class="listaArquivos">
+						<p class="title">Arquivos <i class="icofont-folder"></i></p>
+						<div class="list-group" id="myList" role="tablist">
+							<?php foreach ($result as $key) { ?>
+								<a class="list-group-item list-group-item-action" id="list-invest-list" data-toggle="list" href="<?php echo '#list-invest' . $key->id; ?>" role="tab" aria-controls="invest">
+									<i class="icofont-file-pdf"></i>
+									<span class="verArquivo" id="<?php echo $key->id; ?>"><?php echo $key->nome; ?></span>
+								</a>
+							<?php } ?>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-md-8 boxArquivo">
+					<div class="arquivoPDF tab-content" id="nav-tabContent">
+						<?php foreach ($result as $key) { ?>
+							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
+
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } else {
+				echo "Ainda não existe arquivo para esta categoria.";
+			}
+		?>
+
+	  </div>
+
+	  <div class="tab-pane" id="enviados" role="tabpanel">
+	  	<?php
+			$result = Usuario::find_files_users("User", $usuario->id);
+			if($result) { ?>
+				<div class="col-md-3 boxListaArquivos">
+					<div class="listaArquivos">
+						<p class="title">Arquivos Enviados <i class="icofont-folder"></i></p>
+						<div class="list-group" id="myList" role="tablist">
+							<?php foreach ($result as $key) { ?>
+								<a class="list-group-item list-group-item-action" id="list-invest-list" data-toggle="list" href="<?php echo '#list-invest' . $key->id; ?>" role="tab" aria-controls="invest">
+									<i class="icofont-file-pdf"></i>
+									<span class="verArquivo" id="<?php echo $key->id; ?>"><?php echo $key->nome; ?></span>
+								</a>
+							<?php } ?>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-md-8 boxArquivo">
+					<div class="arquivoPDF tab-content" id="nav-tabContent">
+						<?php foreach ($result as $key) { ?>
+							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
+
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } else {
+				echo "Ainda não existe arquivo para esta categoria.";
+			}
+		?>
+	  </div>
 	</div>
 	
 </div>

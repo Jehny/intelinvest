@@ -4,7 +4,7 @@
 	add_theme_support( 'post-thumbnails' );
 
 	add_action( 'init', 'banners_post_type' );
-	add_action( 'init', 'sobre_post_type' );
+	add_action( 'init', 'canal_link_post_type' );
 	add_action( 'init', 'servicos_post_type' );
 	add_action( 'init', 'investimentos_post_type' );
 	add_action( 'init', 'perfil_post_type' );
@@ -12,7 +12,7 @@
 	add_action( 'init', 'consultoria_post_type' );
 
 	add_post_type_support('banners', 'thumbnail');
-	add_post_type_support('sobre', array('thumbnail', 'excerpt', 'custom-fields'));
+	add_post_type_support('canal_link', array('thumbnail', 'excerpt', 'custom-fields'));
 	add_post_type_support('servicos', array('thumbnail', 'excerpt', 'custom-fields'));
 	add_post_type_support('investimentos', array('thumbnail', 'excerpt'));
 	add_post_type_support('perfil', array('thumbnail', 'excerpt'));
@@ -71,12 +71,12 @@
 		);
 	}
 
-	function sobre_post_type() {
-		register_post_type( 'sobre',
+	function canal_link_post_type() {
+		register_post_type( 'canal_link',
 				array(
 						'labels' => array(
-								'name' => __( 'Sobre' ),
-								'singular_name' => __( 'Sobre' )
+								'name' => __( 'Canal_Link' ),
+								'singular_name' => __( 'Canal_Link' )
 						),
 						'public' => true,
 						'has_archive' => true,

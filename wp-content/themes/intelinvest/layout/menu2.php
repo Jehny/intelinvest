@@ -2,7 +2,7 @@
 		<nav>
 			<ul class="list-inline">
 				<li><a href="<?php echo get_bloginfo('home'); ?>/">HOME</a></li>
-				<li><a href="<?php echo get_bloginfo('home'); ?>/#planos">PLANOS</a></li>
+				<!-- <li><a href="<?php echo get_bloginfo('home'); ?>/#planos">PLANOS</a></li> -->
 				<li><a href="<?php echo get_bloginfo('home'); ?>/#servicos" class="margin">SERVIÇOS</a></li>
 				<li><a href="<?php echo get_bloginfo('home'); ?>/#sobre">SOBRE</a></li>
 				<li><a href="<?php echo get_bloginfo('home'); ?>/contato" class="margin border">CONTATO</a></li>
@@ -32,7 +32,7 @@
 	  	</button>
 	  	<ul class="dropdown-menu" role="menu">
 	    	<li><a href="<?php echo get_bloginfo('home'); ?>/">HOME</a></li>
-			<li><a href="<?php echo get_bloginfo('home'); ?>/#perfil">PLANOS</a></li>
+			<!-- <li><a href="<?php echo get_bloginfo('home'); ?>/#perfil">PLANOS</a></li> -->
 			<li><a href="<?php echo get_bloginfo('home'); ?>/#servicos">SERVIÇOS</a></li>
 			<li><a href="<?php echo get_bloginfo('home'); ?>/#sobre">SOBRE</a></li>
 			<li><a href="contato" class="margin border">CONTATO</a></li>

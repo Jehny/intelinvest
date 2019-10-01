@@ -33,7 +33,7 @@
 		</div>
 		<div class="row-fluid" id="topo">
 			<header class="col-xs-4 col-sm-4 col-md-4">
-				<h1><a href=""><img src="../img/logo.png" class="img-responsive" alt="Intelinvest"></a></h1>
+				<h1><a href="<?php echo $urlHost; ?>"><img src="../img/logo.png" class="img-responsive" alt="Intelinvest"></a></h1>
 			</header>
 		
 		

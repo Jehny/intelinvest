@@ -38,8 +38,15 @@
 	<body>
 		<?php global $message; echo output_message($message); ?>
 	<section class="container-fluid">
-		<div class="sobTopo" id="home	">
-			<a href="" title="">Aprenda a investir, inscreva-se já!</a>
+		<div class="sobTopo" id="home">
+			<?php 
+				$canal = get_posts('post_type=canal_link');
+				if($canal){
+					foreach ($canal as $c){
+			?>
+			<a href="<?php echo get_field('link_aprenda_a_investir', $c->ID); ?>" title="">Aprenda a investir, inscreva-se já!</a>
+		<?php }
+			} ?>
 		</div>
 		<div class="row-fluid" id="topo">
 			<header class="col-xs-4 col-sm-4 col-md-4">

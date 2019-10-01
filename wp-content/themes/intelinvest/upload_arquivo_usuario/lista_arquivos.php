@@ -6,7 +6,7 @@
 
     include "header.php";
     include "menu2.php";
-
+    $urlArquivos = "http://".$_SERVER['HTTP_HOST'] . "/intelinvest/wp-content/themes/intelinvest/upload_arquivo_usuario/uploads/";
     $usuario = new Usuario();
     $files = new Arquivo();
     $caminho = 'uploads';
@@ -87,35 +87,67 @@
  			    </div>
  		 		<button type="submit" name="buscar" class="btn btn-warning">Buscar Arquivos</button>
  		 		 <?php if($objId){  $nomeUsuario = Usuario::retornaNome($objId); ?>
- 		 		<div class="listagem">
+ 		 		<div class="listagem row">
 						<h2><?php echo "Usuário - ". $nomeUsuario; ?></h2>
 				<?php } ?>
- 					<div>
+ 					<div class="col-md-4">
+
  			 		<?php if($objId != "") {
  				 		echo "<h3>Arquivos anexados</h3>";
  				 		echo "<div class='form-group uploadFile row-fluid'> 
- 				 			<ul id='anexos'>";
+ 				 			<ul id='anexos' class='anexoList'>";
  				 			$result = Arquivo::find_files($objId);
  				 			$fileAnexadas = 0;
- 				 			if(is_dir($folder)){
- 				 				
- 				 				foreach($result as $file){
+ 				 			if(is_dir($folder)){ ?>
+ 				 				<div class="list-group" id="myList" role="tablist">
+ 				 			<?php foreach($result as $file){
  				 					$fileExist = $folder . $file->nome;
  				 					if(file_exists($fileExist)){ 
  				 							$urlExcluir = "excluirArquivo.php?acao=acao&id=".$file->id."&idU=".$objId."&arquivo=".$file->nome;
  				 						?>
- 				 						<li lang="<?php echo $file->nome;?>" id="<?php echo $file->id; ?>" idU="<?php echo $objId;?>">	<?php echo $file->nome . " - " . $file->tipo;?>
+
+ 				 						<li lang="<?php echo $file->nome;?>" id="<?php echo $file->id; ?>" idU="<?php echo $objId;?>" class="verArquivo">	
+											<span class="ver list-group-item list-group-item-action" id="list-invest-list" data-toggle="list" href="<?php echo '#list-invest' . $file->id; ?>" role="tab" aria-controls="invest">
+ 				 								<?php echo $file->nome . " - " . $file->tipo;?>
+ 				 							
+ 				 							</span>
 											<a href="<?php echo $urlExcluir; ?>"><img src="image/remove.png" alt="Remover" class="remover"/></a>
  				 						</li>
  				 						<!-- echo "<li lang='". $file->nome ."' id='".$file->id."'>". $file->nome ."<img src='image/remove.png' alt='Remover' class='remover' onclick='removeAnexo(this)'"\/>" </li>"; -->
  				 						<?php $fileAnexadas++;
  				 					}
- 				 				}
+ 				 				}?>
+ 				 				</div>
  				 				
- 				 			}
+ 				 	<?php 	}
  				 		echo "</ul></div>";
  			 		} 
  			 		?>
+ 			 		</div>
+ 			 		<div class="col-md-8 boxArquivo">
+ 			 			<div class="arquivoPDF tab-content" id="nav-tabContent">
+ 			 			<?php
+ 			 			$fileAnexadas = 0;
+ 			 			if(is_dir($folder)){
+			 				foreach($result as $file){
+			 					$fileExist = $folder . $file->nome;
+			 					if(file_exists($fileExist)){ 
+			 							$urlExcluir = "excluirArquivo.php?acao=acao&id=".$file->id."&idU=".$objId."&arquivo=".$file->nome;
+			 						?>
+									<div class="tab-pane fade" id="<?php echo 'list-invest' . $file->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
+			 							<embed src="<?php echo $urlArquivos . $objId .'/'.$file->nome; ?>" width="760" height="900" type='application/pdf'>
+			 						</div>
+			 						<!-- <li lang="<?php echo $file->nome;?>" id="<?php echo $file->id; ?>" idU="<?php echo $objId;?>">	<?php echo $file->nome . " - " . $file->tipo;?>
+									<a href="<?php echo $urlExcluir; ?>"><img src="image/remove.png" alt="Remover" class="remover"/></a>
+			 						</li> -->
+			 						<!-- echo "<li lang='". $file->nome ."' id='".$file->id."'>". $file->nome ."<img src='image/remove.png' alt='Remover' class='remover' onclick='removeAnexo(this)'"\/>" </li>"; -->
+			 						<?php $fileAnexadas++;
+			 					}
+			 				}
+			 				
+			 			}
+ 			 			?>
+ 			 			</div>
  			 		</div>
  			 	</div>
  		 	</form>

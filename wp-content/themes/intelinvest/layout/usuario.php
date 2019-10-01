@@ -214,6 +214,17 @@ class Usuario {
 	
 	}
 
+	public static function find_files_users_avisos($idUser){
+		global $wpdb;
+		$sql  = "SELECT * FROM wp_arquivos ";
+		$sql .= "WHERE (id_user = '{$idUser}' AND tipo = 'Avisos') ";
+		$sql .= "OR (id_user = '0' AND tipo = 'Avisos')";
+		// echo $sql;
+		$result = $wpdb->get_results($sql);
+		return $result;
+	
+	}
+
 
 
 	private static function instantiate($record){

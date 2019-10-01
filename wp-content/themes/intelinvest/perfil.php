@@ -7,13 +7,16 @@
 		<div class="perfil-box">
 			<?php
 			$args = array(
-				'orderby' => 'rand',
      			'post_type' => 'perfil',
+     			'orderby' => 'ordem',
+     			'order' => 'ASC'
 			);
-				$perfis = get_posts('post_type=perfil');
+				// $perfis = get_posts('post_type=perfil');
+			$perfis = get_posts($args);
 					if($perfis){
 						foreach ($perfis as $perfil){
 			?>
+
 							<div class="col-xs-12 col-sm-12 col-md-4 box">
 								<h4><?php echo get_field('titulo_card', $perfil->ID); ?></h4>
 								<h5><?php echo get_field('subtitulo_card', $perfil->ID); ?></h5>
@@ -27,7 +30,7 @@
 									<i class="icofont-check-alt"></i>
 									<?php echo get_field('item3_card', $perfil->ID); ?></p>
 							</div>
-			<?php
+			<?php 
 					}
 				}
 			?>

@@ -12,7 +12,7 @@
 		<nav>
 			<ul class="list-inline">
 				<li><a href="">HOME</a></li>
-				<li><a href="">PLANOS</a></li>
+				<!-- <li><a href="">PLANOS</a></li> -->
 				<li><a href="" class="margin">SERVIÇOS</a></li>
 				<li><a href="">SOBRE</a></li>
 				<li><a href="" class="margin border">CONTATO</a></li>
@@ -35,7 +35,7 @@
 	  	</button>
 	  	<ul class="dropdown-menu" role="menu">
 	    	<li><a href="">HOME</a></li>
-			<li><a href="">PLANOS</a></li>
+			<!-- <li><a href="">PLANOS</a></li> -->
 			<li><a href="">SERVIÇOS</a></li>
 			<li><a href="">SOBRE</a></li>
 			<li><a href="" class="margin border">CONTATO</a></li>
