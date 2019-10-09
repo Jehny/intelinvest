@@ -1,5 +1,5 @@
  <div class="row-fluid">
-	 <div id="banner" class="carousel slide carousel-fade" data-ride="carousel">
+	 <div id="banner" class="carousel slide carousel-fade hidden-xs hidden-sm" data-ride="carousel">
 
 		<div class="carousel-inner">
 			<?php 

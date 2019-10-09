@@ -1,4 +1,4 @@
-	<div id="menu" class="hidden-xs col-sm-8 col-md-8">
+	<div id="menu" class="hidden-xs hidden-sm col-md-8">
 		<nav>
 			<ul class="list-inline">
 				<li><a href="<?php echo get_bloginfo('home'); ?>/">HOME</a></li>
@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 	</div>
-	<div id="buttom_menu" class="btn-group hidden-sm hidden-md hidden-lg col-xs-8">
+	<div id="buttom_menu" class="btn-group col-xs-8 hidden-md hidden-lg col-xs-8">
 	 	<button type="button" class="btn btn-default dropdown-toggle hidden-md" data-toggle="dropdown" id="button_dropdown">
 	    	Menu <span class="caret"></span>
 	  	</button>
@@ -50,9 +50,6 @@
 				<li><a href="logout" class="margin border scroll logCad" data-offset="0">LOGOUT</a></li>
 			<?php } 
 			?> 
-			
-		</ul>
-	</div>
 			
 		</ul>
 	</div>

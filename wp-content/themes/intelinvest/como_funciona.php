@@ -18,7 +18,7 @@
 						$c = 1;
 						foreach ($funcioina as $fnc){
 							if($i==2){ $c = 2;?>
-								<div class="col-xs-12 col-sm-12 col-md-1">
+								<div class="hidden-xs hidden-sm col-md-1">
 									<p class="separador"><span>..............................</span></p>
 								</div>
 					<?php 	} ?>				
@@ -27,7 +27,7 @@
 								$image = get_field('imagem', $fnc->ID);
 								if( !empty($image) ): ?>
 
-									<p class="imagem"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /></p>
+									<p class="imagem"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="img-responsive" /></p>
 
 								<?php endif; ?>
 								
@@ -37,7 +37,7 @@
 
 			<?php
 						if($i==2){ ?>
-								<div class="col-xs-12 col-sm-12 col-md-1">
+								<div class="hidden-xs hidden-sm col-md-1">
 									<p class="separador"><span>..............................</span></p>
 								</div>
 					 <?php } $c++;

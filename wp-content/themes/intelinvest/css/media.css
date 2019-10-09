@@ -1,0 +1,85 @@
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap */
+@media (width: 1024px) {
+
+
+}
+
+@media (max-width: 1024px) and (min-width: 768px){
+	
+}
+
+@media(min-width: 1024px) and (max-width: 1366px) {
+
+
+}
+@media (width: 320px) {
+
+
+
+}
+@media (min-width: 321px) and (max-width: 736px) {
+	
+	#topo header h1 a img {max-width: 100%;}
+	#topo header h1 a {height: 125px;}
+	.mobile {height: 133px;}
+	.invest-box, .perfil-box{ width: 95%; min-height: inherit; overflow: inherit;}
+	.invest-box .box, .perfil-box .box {width:95%; top: 20px; margin-left: 2%; margin-bottom: 4%;}
+	.invest-box .box:nth-child(2), .perfil-box .box:nth-child(2) {margin-left: 2%; margin-right: 0;}
+	.investimentos, .perfil, .como_funciona, .consultoria {margin-top: 15%;overflow: auto;}
+	.investimentos h3, .perfil h3, .como_funciona h3, .consultoria h3 {margin-top: 10%;}
+	.perfil .ajudamos {margin-top: 11%;}
+	.como_funciona-box .box {width: 95%;}
+	.como_funciona-box .box1 {margin-right: 0;}
+	.como_funciona-box .box .imagem {height: auto;}
+	.como_funciona-box .box1 img, .como_funciona-box .box3 img {margin: auto;}
+	.como_funciona .n_sabe {font-size: 19px !important;}
+	.como_funciona-box .box h4 {font-size: 20px; margin-bottom: 13%; margin-top: 13%; }
+	.consultoria .slogan {width: 90%;}
+	footer .coluna1 h5, footer .coluna2 h5 {width: 100%;}
+	.sobTopo {padding-top: 3%;}
+	#topo {overflow: inherit; height: 1% !important;}
+
+}
+
+@media (width: 360px){
+
+
+}
+@media (width: 375px){
+
+
+}
+
+@media (width: 411px){
+
+}
+@media (width: 414px){
+
+
+}
+
+@media (width: 568px){
+
+}
+
+@media (width: 640px){
+
+}
+
+@media (width: 667px){
+
+}
+
+@media (width: 731px){
+
+}
+
+@media (width: 736px){
+
+
+}
+
+@media (min-width: 768px) and (max-width: 823px) {
+
+}

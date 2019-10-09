@@ -1430,6 +1430,7 @@ footer .coluna2 p {
 	#buttom_menu {
 		float: right;
 		margin-top: 17px;
+		margin-bottom: 7%;
 	}
 
 	#buttom_menu button {
@@ -1476,7 +1477,7 @@ footer .coluna2 p {
 	}
 
 	#servicos p {
-		font-size: 14px !important;
+		/* font-size: 14px !important; */
 	}
 
 	#servicos .tipos_servicos .col-xs-12 a {

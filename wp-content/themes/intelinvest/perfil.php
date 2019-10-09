@@ -37,8 +37,10 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<p class="ajudamos">Ajudamos você a investir melhor.</p>
-		<p><a href="<?php echo get_bloginfo('home');?>/contato" title="Entre em contato" class="btn_entre">Entre em contato</a>
+	<div class="row-fluid">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<p class="ajudamos">Ajudamos você a investir melhor.</p>
+			<p><a href="<?php echo get_bloginfo('home');?>/contato" title="Entre em contato" class="btn_entre">Entre em contato</a>
+		</div>
 	</div>
 </div>
