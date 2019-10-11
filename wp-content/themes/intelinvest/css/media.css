@@ -18,10 +18,70 @@ No media query since this is the default in Bootstrap */
 
 
 }
-@media (min-width: 321px) and (max-width: 736px) {
+@media only screen and (min-width : 1024px) and (max-width : 1366px) {
+.bg_cnsultoria {height: 35%;}
+/* .login_modal .image2 img {height: 33%;} */
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+	#topo header h1 a img {max-width: 100%; margin: auto;}
+	#topo header h1 a {height: 150px;}
+	button#button_dropdown
+	.sobTopo {padding-top: 1.5%;}
+	#topo {overflow: inherit; height: 1% !important;}
+	#buttom_menu {padding-right: 5%;}
+	.mobile {height: 133px;}
+	.invest-box, .perfil-box{ width: 95%; min-height: inherit; overflow: inherit;}
+	.invest-box .box, .perfil-box .box {width:95%; top: 20px; margin-left: 2%; margin-bottom: 4%;}
+	.invest-box .box:nth-child(2), .perfil-box .box:nth-child(2) {margin-left: 2%; margin-right: 0;}
+	.como_funciona-box .box {width: 95%;}
+	.como_funciona-box .box1 {margin-right: 0;}
+	.como_funciona-box .box .imagem {height: auto;}
+	.como_funciona-box .box1 img, .como_funciona-box .box2 img, .como_funciona-box .box3 img {margin: auto; width: 45%;}
+	.como_funciona .n_sabe {font-size: 19px !important;}
+	.como_funciona-box .box h4 {font-size: 30px; margin-bottom: 13%; margin-top: 13%; }
+	.investimentos, .perfil, .como_funciona, .consultoria {margin-top: 5%;overflow: auto;}
+	.investimentos h3, .perfil h3, .como_funciona h3, .consultoria h3 {margin-top: 10%;}
+	.perfil-box .box h4 {font-size: 30px;}
+	.perfil-box .box h5 {font-size: 20px; padding-bottom:5%;}
+	.perfil .box .item {font-size: 25px;}
+	.como_funciona .separador {display: none;}
+	#menu nav li a {padding: 25px 15px 28px 15px;}
+	#contato .caixa {margin-top: 10%;}
+	#buttom_menu {
+		float: right;
+	    margin-top: 17px;
+	    margin-bottom: 7%;
+	}
+	#buttom_menu .dropdown-menu {
+		float: inherit;
+    	left: inherit;
+    	right: 15px;
+	}
+	/* .login_modal .image2 img {height: 60%;} */
+}
+
+@media only screen and (min-width : 411px) and (max-width : 823px) {
+#buttom_menu {
+		float: right;
+	    margin-top: 17px;
+	    margin-bottom: 0%;
+	}
+	.btn-group-vertical>.btn, .btn-group>.btn{
+		float: right;
+	}
+
+	#button_dropdown {
+		float: right;
+	}
+	.login_modal form fieldset legend { width: auto; padding-right: 2%}
+}
+
+@media (min-width: 320px) and (max-width: 736px) {
 	
 	#topo header h1 a img {max-width: 100%;}
 	#topo header h1 a {height: 125px;}
+	.sobTopo {padding-top: 3%;}
+	#topo {overflow: inherit; height: 1% !important;}
 	.mobile {height: 133px;}
 	.invest-box, .perfil-box{ width: 95%; min-height: inherit; overflow: inherit;}
 	.invest-box .box, .perfil-box .box {width:95%; top: 20px; margin-left: 2%; margin-bottom: 4%;}
@@ -37,10 +97,12 @@ No media query since this is the default in Bootstrap */
 	.como_funciona-box .box h4 {font-size: 20px; margin-bottom: 13%; margin-top: 13%; }
 	.consultoria .slogan {width: 90%;}
 	footer .coluna1 h5, footer .coluna2 h5 {width: 100%;}
-	.sobTopo {padding-top: 3%;}
-	#topo {overflow: inherit; height: 1% !important;}
-
+	#contato .caixa {margin-top: 10%;}
+	.login_modal form fieldset legend {width: auto; padding-right: 2%}
+	.login_modal h1 {font-size: 30px;}
 }
+
+
 
 @media (width: 360px){
 
@@ -51,9 +113,7 @@ No media query since this is the default in Bootstrap */
 
 }
 
-@media (width: 411px){
 
-}
 @media (width: 414px){
 
 

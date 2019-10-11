@@ -412,6 +412,7 @@ body {
 .como_funciona-box .box2 img {
 	width: 69%;
     margin-top: 8%;
+    margin: auto;
 }
 
 .como_funciona-box .box3 img {
@@ -534,7 +535,7 @@ footer .coluna1 {
 footer .coluna1 h5,  footer .coluna2 h5 {
 	font-size: 18px;
 	font-family: 'OpenSans-Bold';
-	width: 40%;
+	width: 50%;
 	height: 60px;
 }
 

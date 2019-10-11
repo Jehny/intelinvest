@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 	</div>
-	<div id="buttom_menu" class="btn-group col-xs-8 hidden-md hidden-lg col-xs-8">
+	<div id="buttom_menu" class="btn-group col-xs-12 hidden-md hidden-lg col-xs-12">
 	 	<button type="button" class="btn btn-default dropdown-toggle hidden-md" data-toggle="dropdown" id="button_dropdown">
 	    	Menu <span class="caret"></span>
 	  	</button>
@@ -38,7 +38,7 @@
 			<li><a href="contato" class="margin border">CONTATO</a></li>
 			 <?php 
 				if(!$_SESSION['user_id_intelinvest']){  ?>
-					<li><a href="#loginModal" class="logCad margin border scroll" data-offset="0">LOGIN/CADASTRO</a></li>
+					<li><a href="#loginModal" class="margin border jqModal logCad" rel='modal:open'>LOGIN/CADASTRO</a></li>
 			<?php	} else { $urlPerfil = get_bloginfo('home')."/perfil_user?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']);?>
 				
 				<?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])){ $urlPainel = get_bloginfo('home')."/painel-controle?intelinvest=".doCodifica("?user_id_intelinvest=" .$_SESSION['user_id_intelinvest']); ?>

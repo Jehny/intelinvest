@@ -29,7 +29,7 @@
 			</ul>
 		</nav>
 	</div>
-	<div id="buttom_menu" class="btn-group col-sm-8 hidden-md hidden-lg col-xs-8">
+	<div id="buttom_menu" class="btn-group col-sm-12 hidden-md hidden-lg col-xs-12">
 	 	<button type="button" class="btn btn-default dropdown-toggle hidden-md" data-toggle="dropdown" id="button_dropdown">
 	    	Menu <span class="caret"></span>
 	  	</button>
