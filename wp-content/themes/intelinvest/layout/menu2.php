@@ -28,7 +28,7 @@
 	</div>
 	<div id="buttom_menu" class="btn-group col-xs-12 hidden-md hidden-lg col-xs-12">
 	 	<button type="button" class="btn btn-default dropdown-toggle hidden-md" data-toggle="dropdown" id="button_dropdown">
-	    	Menu <span class="caret"></span>
+	    	<span class="icofont-navigation-menu"></span>
 	  	</button>
 	  	<ul class="dropdown-menu" role="menu">
 	    	<li><a href="<?php echo get_bloginfo('home'); ?>/">HOME</a></li>

@@ -143,7 +143,7 @@ iframe {
     overflow: hidden;
     margin: 0;
     height: 60px;
-    width: 450px;
+    width: auto;
 }
 
 #anexos {
@@ -187,65 +187,66 @@ function removeAnexo(obj)
     
 </head>
 
-<body>
-<section class="bodyFileUpload">
+
+<div class="bodyFileUpload">
     <?php if(isset($message)){
                 echo $message;
                 } ?>
 
-    <h1>Upload arquivos</h1>
-     <iframe src="upload.php" frameborder="0" scrolling="no"></iframe>
-    <form id="upload" action="index.php" method="post">
-        <div class="form-group row-fluid selectUser">
-            <?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
-            <div class="col-md-4">
-                <p>Usuário</p>
-                 <?php $usuario->criaSelectUsuario(); ?>
-            </div>
-            <div class="col-md-4">
-                <p>Tipo</p>
-                <select name="tipoArquivo" id="tipoArquivo" class="form-control">
-                    <option value="Avisos">Avisos</option>
-                    <option value="Informativos">Informativos</option>
-                    <option value="Analises">Análises</option>
-                    <option value="Investimentos">Investimentos</option>
-                    <option value="Imposto_de_renda">Imposto de renda</option>
-                </select>
-            </div>
-             <div class="col-md-4">
-                <p>Perfil</p>
-                <?php $perfis = Perfil::retornaPerfilSemAdmin(); ?>
-                <select name="tipoPerfil" id="tipoPerfil" class="form-control">
-                    <option value="0">Selecione um perfil</option>
-                    <?php foreach ($perfis as $key) { ?>
-                    <option value="<?php echo $key->id; ?>"><?php echo $key->nome; ?></option>
-                    <?php } ?>
-                </select>
+    <div class="row-fluid">
+         <h1>Upload arquivos</h1>
+         <iframe src="upload.php" frameborder="0" scrolling="no"></iframe>
+         <form id="upload" action="index.php" method="post">
+             <div class="form-group row-fluid selectUser">
+                 <?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
+                 <div class="col-xs-12 col-xs-12 col-md-4">
+                     <p>Usuário</p>
+                      <?php $usuario->criaSelectUsuario(); ?>
+                 </div>
+                 <div class="col-xs-12 col-xs-12 col-md-4">
+                     <p>Tipo</p>
+                     <select name="tipoArquivo" id="tipoArquivo" class="form-control">
+                         <option value="Avisos">Avisos</option>
+                         <option value="Informativos">Informativos</option>
+                         <option value="Analises">Análises</option>
+                         <option value="Investimentos">Investimentos</option>
+                         <option value="Imposto_de_renda">Imposto de renda</option>
+                     </select>
+                 </div>
+                  <div class="col-xs-12 col-xs-12 col-md-4">
+                     <p>Perfil</p>
+                     <?php $perfis = Perfil::retornaPerfilSemAdmin(); ?>
+                     <select name="tipoPerfil" id="tipoPerfil" class="form-control">
+                         <option value="0">Selecione um perfil</option>
+                         <?php foreach ($perfis as $key) { ?>
+                         <option value="<?php echo $key->id; ?>"><?php echo $key->nome; ?></option>
+                         <?php } ?>
+                     </select>
+                  </div>
+                 <?php } ?>
              </div>
-            <?php } ?>
-        </div>
-        <input type="hidden" name="userid" value="<?php echo $usuario->id; ?>"/>
-       <input type="hidden" name="perfil" value="<?php echo $usuario->id_perfil; ?>"/>
-        <?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
-       <div class="btnEnviar">
-           <p> <button type="submit" name="enviar" value="Enviar" class="btn btn-warning">Enviar</button></p>
-       </div>
-       
-   <?php } else { ?>
-       <div class="btnEnviar">
-           <p> <button type="submit" name="enviarUser" value="Enviar" class="btn btn-warning">Enviar</button></p>
-       </div>
-    <?php } ?>
-    </form>
+             <input type="hidden" name="userid" value="<?php echo $usuario->id; ?>"/>
+            <input type="hidden" name="perfil" value="<?php echo $usuario->id_perfil; ?>"/>
+             <?php if(Usuario::isAdministrador($_SESSION['user_id_intelinvest'])) { ?>
+            <div class="btnEnviar">
+                <p> <button type="submit" name="enviar" value="Enviar" class="btn btn-warning">Enviar</button></p>
+            </div>
+            
+        <?php } else { ?>
+            <div class="btnEnviar">
+                <p> <button type="submit" name="enviarUser" value="Enviar" class="btn btn-warning">Enviar</button></p>
+            </div>
+         <?php } ?>
+         </form>
+    </div>
 
-     <div class="row-fluid fileAnexos">
-        <ul id="anexos"></ul>   
+    <div class="row-fluid fileAnexos">
+        <div class="col-xs-12 col-xm-12 col-md-12">
+            <ul id="anexos"></ul> 
+        </div>  
     </div>
    
-</section>
-</body>
-</html>
-
+</div>
 <?php
 
     include "footer.php";

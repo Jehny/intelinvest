@@ -50,7 +50,7 @@
 			} ?>
 		</div>
 		<div class="row-fluid" id="topo">
-			<header class="col-xs-12 col-sm-12 col-md-4">
+			<header class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 				<h1><a href="<?php echo get_bloginfo('home'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" class="img-responsive" alt="Intelinvest"></a></h1>
 			</header>
 		

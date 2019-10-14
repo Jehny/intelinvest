@@ -68,7 +68,7 @@
 		<?php
 			$result = Usuario::find_files_users("Investimentos", $usuario->id);
 			if($result) { ?>
-				<div class="col-md-3 boxListaArquivos">
+				<div class="col-md-3 col-xs-12 col-sm-12 boxListaArquivos">
 					<div class="listaArquivos">
 						<p class="title">Arquivos <i class="icofont-folder"></i></p>
 						<div class="list-group" id="myList" role="tablist">
@@ -78,17 +78,15 @@
 									<span class="verArquivo" id="<?php echo $key->id; ?>"><?php echo $key->nome; ?></span>
 								</a>
 							<?php } ?>
-							
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-1"></div>
-				<div class="col-md-8 boxArquivo">
+				<div class="col-md-1 hidden-sm hidden-xs"></div>
+				<div class="col-md-8 col-sm-12 col-xs-12 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
 						<?php foreach ($result as $key) { ?>
 							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
 								<embed src="<?php echo $urlArquivos . $usuario->id . '/'.$key->nome; ?>" width="760" height="900" type='application/pdf'>
-
 							</div>
 						<?php } ?>
 					</div>
@@ -103,7 +101,7 @@
 		<?php
 			$result = Usuario::find_files_users("Rentabilidade", $usuario->id);
 			if($result) { ?>
-				<div class="col-md-3 boxListaArquivos">
+				<div class="col-md-3 col-sm-12 col-xs-12 boxListaArquivos">
 					<div class="listaArquivos">
 						<p class="title">Arquivos <i class="icofont-folder"></i></p>
 						<div class="list-group" id="myList" role="tablist">
@@ -117,8 +115,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-1"></div>
-				<div class="col-md-8 boxArquivo">
+				<div class="col-md-1 hidden-sm hidden-xs"></div>
+				<div class="col-md-8 col-sm-12 col-xs-12 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
 						<?php foreach ($result as $key) { ?>
 							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
@@ -138,7 +136,7 @@
 	  	<?php
 			$result = Usuario::find_files_users("Informações", $usuario->id);
 			if($result) { ?>
-				<div class="col-md-3 boxListaArquivos">
+				<div class="col-md-3 col-sm-12 col-xs-12 boxListaArquivos">
 					<div class="listaArquivos">
 						<p class="title">Arquivos <i class="icofont-folder"></i></p>
 						<div class="list-group" id="myList" role="tablist">
@@ -152,8 +150,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-1"></div>
-				<div class="col-md-8 boxArquivo">
+				<div class="col-md-1 hidden-sm hidden-xs"></div>
+				<div class="col-md-8 col-sm-12 col-xs-12 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
 						<?php foreach ($result as $key) { ?>
 							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
@@ -172,7 +170,7 @@
 		<?php
 			$result = Usuario::find_files_users_avisos($usuario->id);
 			if($result) { ?>
-				<div class="col-md-3 boxListaArquivos">
+				<div class="col-md-3 col-sm-12 col-xs-12 boxListaArquivos">
 					<div class="listaArquivos">
 						<p class="title">Arquivos <i class="icofont-folder"></i></p>
 						<div class="list-group" id="myList" role="tablist">
@@ -186,8 +184,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-1"></div>
-				<div class="col-md-8 boxArquivo">
+				<div class="col-md-1 hidden-sm hidden-xs"></div>
+				<div class="col-md-8 col-sm-12 col-xs-12 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
 						<?php foreach ($result as $key) { ?>
 							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">
@@ -208,7 +206,7 @@
 	  	<?php
 			$result = Usuario::find_files_users("User", $usuario->id);
 			if($result) { ?>
-				<div class="col-md-3 boxListaArquivos">
+				<div class="col-md-3 col-sm-12 col-xs-12 boxListaArquivos">
 					<div class="listaArquivos">
 						<p class="title">Arquivos Enviados <i class="icofont-folder"></i></p>
 						<div class="list-group" id="myList" role="tablist">
@@ -222,8 +220,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-1"></div>
-				<div class="col-md-8 boxArquivo">
+				<div class="col-md-1 hidden-sm hidden-xs"></div>
+				<div class="col-md-8 col-sm-12 col-xs-12 boxArquivo">
 					<div class="arquivoPDF tab-content" id="nav-tabContent">
 						<?php foreach ($result as $key) { ?>
 							<div class="tab-pane fade" id="<?php echo 'list-invest' . $key->id; ?>" role="tabpanel" aria-labelledby="list-invest-list">

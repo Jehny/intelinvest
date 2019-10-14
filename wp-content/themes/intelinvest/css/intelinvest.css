@@ -535,7 +535,7 @@ footer .coluna1 {
 footer .coluna1 h5,  footer .coluna2 h5 {
 	font-size: 18px;
 	font-family: 'OpenSans-Bold';
-	width: 50%;
+	width: 75%;
 	height: 60px;
 }
 
@@ -1060,6 +1060,9 @@ footer .coluna2 p {
 .boxArquivo .arquivoPDF {
 	margin-top: 0;
 }
+
+.listFileButton {}
+.listFiles {}
 
 @media only screen and (min-width : 769px) and (max-width : 1024px) {
 	#topo_2 header h1 img {
@@ -1709,7 +1712,7 @@ height: 23%;}
 	.carousel-inner .active.left { left: -100%; }
 	.carousel-inner .next        { left:  100%; }
 	.carousel-inner .prev		 { left: -100%; }
-	.active > div { display:none; }
+	/* .active > div { display:none; } */
 	.active > div:first-child { display:block; }
 	#slider_sobre .carousel-control.left {margin-left: 5px; margin-top: 4%;}
 
@@ -1717,7 +1720,7 @@ height: 23%;}
 	.thumb { margin-left: 6%; }
 	#slider_sobre .carousel-inner>.item {width: 50%; margin: auto;}
 }
-@media (min-width: 767px) and (max-width: 992px ) {
+/* @media (min-width: 767px) and (max-width: 992px ) {
 	.carousel-inner .active.left { left: -50%; }
 	.carousel-inner .next        { left:  50%; }
 	.carousel-inner .prev		 { left: -50%; }
@@ -1728,7 +1731,7 @@ height: 23%;}
 	#slider_sobre .carousel-control.left {margin-left: 5px; margin-top: 8%;}
 
 	#slider_sobre .carousel-control.right {margin-right: 15px; margin-top: 8%;}
-}
+} */
 @media (min-width: 992px ) {
 	.carousel-inner .active.left { left: -25%; }
 	.carousel-inner .next        { left:  25%; }

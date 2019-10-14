@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="../css/icofont.css" type="text/css" />
 		<link rel="stylesheet" href="../css/jquery.modal.min.css" type="text/css" />
 		<link rel="stylesheet" href="../css/intelinvest.css" type="text/css" />
+		<link rel="stylesheet" href="../css/media.css" type="text/css" />
 
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
@@ -32,7 +33,7 @@
 			<a href="" title="">Aprenda a investir, inscreva-se já!</a>
 		</div>
 		<div class="row-fluid" id="topo">
-			<header class="col-xs-4 col-sm-4 col-md-4">
+			<header class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 				<h1><a href="<?php echo $urlHost; ?>"><img src="../img/logo.png" class="img-responsive" alt="Intelinvest"></a></h1>
 			</header>
 		

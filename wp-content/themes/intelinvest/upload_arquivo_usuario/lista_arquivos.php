@@ -10,7 +10,7 @@
     $usuario = new Usuario();
     $files = new Arquivo();
     $caminho = 'uploads';
-	$objId = "";
+	$objId = 0;
 	$objAdmin ="";
 	$nomeUsuario = "";
     if(!isset($_SESSION['user_id_intelinvest'])){
@@ -73,7 +73,7 @@
 	}
     </script>
 
- <section>
+<section>
  	<div class="row-fluid">
  		 <div class="listaArquivos">
  		 	<?php $urlLista = "lista_arquivos.php";
@@ -85,12 +85,14 @@
  		 		<div class="form-group row-fluid selectUser">
  			        <?php $usuario->criaSelectUsuario($objId); ?>
  			    </div>
- 		 		<button type="submit" name="buscar" class="btn btn-warning">Buscar Arquivos</button>
+ 		 		<div class="listFileButton">
+ 		 			<button type="submit" name="buscar" class="btn btn-warning">Buscar Arquivos</button>	
+ 		 		</div>
  		 		 <?php if($objId){  $nomeUsuario = Usuario::retornaNome($objId); ?>
  		 		<div class="listagem row">
 						<h2><?php echo "Usuário - ". $nomeUsuario; ?></h2>
 				<?php } ?>
- 					<div class="col-md-4">
+ 					<div class="col-md-4 listFiles">
 
  			 		<?php if($objId != "") {
  				 		echo "<h3>Arquivos anexados</h3>";
@@ -127,6 +129,7 @@
  			 		<div class="col-md-8 boxArquivo">
  			 			<div class="arquivoPDF tab-content" id="nav-tabContent">
  			 			<?php
+ 			 			$result = Arquivo::find_files($objId);
  			 			$fileAnexadas = 0;
  			 			if(is_dir($folder)){
 			 				foreach($result as $file){

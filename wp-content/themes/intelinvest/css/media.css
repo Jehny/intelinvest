@@ -1,3 +1,12 @@
+span.icofont-navigation-menu {
+    font-size: 2.5em;
+    color: gray;
+}
+
+#buttom_menu .btn-default {
+	border-color:  white;
+}
+
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap */
 @media (width: 1024px) {
@@ -20,6 +29,7 @@ No media query since this is the default in Bootstrap */
 }
 @media only screen and (min-width : 1024px) and (max-width : 1366px) {
 .bg_cnsultoria {height: 35%;}
+.fileAnexos {min-height: 60px;}
 /* .login_modal .image2 img {height: 33%;} */
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px) {
@@ -57,6 +67,9 @@ No media query since this is the default in Bootstrap */
     	left: inherit;
     	right: 15px;
 	}
+	#menu {
+		margin-bottom: 6%;
+	}
 	/* .login_modal .image2 img {height: 60%;} */
 }
 
@@ -74,6 +87,7 @@ No media query since this is the default in Bootstrap */
 		float: right;
 	}
 	.login_modal form fieldset legend { width: auto; padding-right: 2%}
+	.fileAnexos {min-height: 60px;}
 }
 
 @media (min-width: 320px) and (max-width: 736px) {
@@ -100,6 +114,7 @@ No media query since this is the default in Bootstrap */
 	#contato .caixa {margin-top: 10%;}
 	.login_modal form fieldset legend {width: auto; padding-right: 2%}
 	.login_modal h1 {font-size: 30px;}
+	.fileAnexos {min-height: 60px;}
 }
 
 
