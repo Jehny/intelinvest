@@ -170,9 +170,12 @@ class Usuario {
 	}
 
 	public static function find_by_email( $email = "" ) {
-		$result_array = self::find_by_sql("SELECT * FROM " . self::$table_name . " WHERE email ='{$email}'");
+		$sql = "SELECT * FROM " . self::$table_name . " WHERE email ='{$email}'";
 
-		return !empty($result_array) ? array_shift($result_array) : false;
+		$result = $wpdb->get_row($sql);
+		return $result;
+
+		// return !empty($result_array) ? array_shift($result_array) : false;
 	}
 	
 
